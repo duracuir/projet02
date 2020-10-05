@@ -6,7 +6,7 @@ $db = mysqli_select_db($connection, 'myminette');
 if(isset($_POST['Save'])) {
     // $name = $_GET["username"];
  
- $query = "UPDATE `membres` SET datenaiss = '$_POST[datenaiss]', slogan = '$_POST[slogan]', region = '$_POST[region]', nationality = $_POST[nationality], epilation = '$_POST[epilation]', piercing = '$_POST[piercing]', tattoo = '$_POST[tattoo]', ville = '$_POST[ville]'  WHERE username = '$_SESSION[username]' ";
+ $query = "UPDATE `membres` SET datenaiss = '$_POST[datenaiss]', slogan = '$_POST[slogan]', region = '$_POST[region]', nationality = $_POST[nationality], epilation = '$_POST[epilation]', piercing = '$_POST[piercing]', tattoo = '$_POST[tattoo]'  WHERE username = '$_SESSION[username]' ";
   $query_run = mysqli_query($connection, $query);
   if($query_run) {
     echo '<script type="text/javascript"> alert("Vos données ont été enregistrées avec succès") </script>';
@@ -162,7 +162,7 @@ if(!isset($_SESSION['username'])) {
                             <div class="col-xs-5 grp">
                             <input type="text" id="nom" name="username" value=<?php echo "$_SESSION[username]" ?> placeholder="Nom">
                             </div>
-                            <div class="col-xs-1 grp">
+                            <!-- <div class="col-xs-1 grp">
                                 <label for="ville">Ville*</label>
 
                             </div>
@@ -195,7 +195,7 @@ if(!isset($_SESSION['username'])) {
                                 </select>
                                 </button>  
                                </div>  
-                             </div>
+                             </div> -->
                             <div class="col-xs-5 grp">
                             <label for="start">Né(e) le:</label>
                         </div>
@@ -327,7 +327,8 @@ if(!isset($_SESSION['username'])) {
 		    
         <div class="col-xs-12">
                      <div class="nextandbackBtns">
-                      <a href="#" class="btn btn-primary save" name="Save">Enregistrer</a>
+                      <button type="submit" class="btn btn-primary save" name="Save">Enregistrer</button>
+                      <!-- <a href="#" class="btn btn-primary save" name="Save">Enregistrer</a> -->
                      </div>
                     </div>
             

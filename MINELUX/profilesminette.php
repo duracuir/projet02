@@ -5,10 +5,11 @@ if (isset($_GET["username"])) {
   $username = $_GET["username"];
   try {
     $statement = $pdo->prepare( 
-     "SELECT username, photos, (YEAR(CURDATE())-date_format(datenaiss, '%Y')) as datenaiss, ville, epilation,tattoo, langue, piercing, apropos, sexe FROM membres WHERE username = :username ORDER BY orderGallery DESC"
+     "SELECT username, photos, (YEAR(CURDATE())-date_format(datenaiss, '%Y')) as datenaiss, ville, epilation,tattoo, langue, piercing, apropos, sexe, slogan FROM membres WHERE username = :username ORDER BY orderGallery DESC"
       );
     $stmt = $pdo->prepare("SELECT * FROM reception WHERE username = :username");
     $sql = $pdo->prepare("SELECT * FROM deplacement WHERE usernamed = :usernamed");
+    $stat = $pdo->prepare("SELECT * FROM coordonnees WHERE username = :username ");
 
     $statement->execute(["username" => $username]);
     $results = $statement->fetchAll(PDO::FETCH_OBJ);
@@ -18,6 +19,10 @@ if (isset($_GET["username"])) {
 
     $sql->execute(["usernamed" => $username]);
     $deplace = $sql->fetchAll(PDO::FETCH_OBJ);
+
+    $stat->execute(["username"=>$username]);
+    $coord = $stat->fetchAll(PDO::FETCH_OBJ);
+
   } catch (PDOException $e) {
       echo "<h4 style='color: red;'>".$e->getMessage(). "</h4>";
   }
@@ -84,9 +89,23 @@ if (isset($_GET["username"])) {
 
                     <div class="pull-left"></div>
                     <div class="pull-right">
-                        <a class="btn btn-primary" href="connexion.php">S'identifier</a>
-                        <a class="btn btn-tertiary" href="signup.html">S'inscrire</a>
-                        <a class="btn btn-secondary" href="contact.html">Nous Contater</a>
+                        <span class="usermessage">
+                         Bienvenue:
+                        <a class="username" href="panel.php">
+                             <?php 
+                       
+                                if(!isset($_SESSION['username'])){
+                                   echo "Vous n'êtes pas connecté!";
+                                }else{
+                                    echo $_SESSION['username'];
+                                
+                                }
+                     ?>
+                        </a>
+                        </span>   
+                        <a class="btn btn-tertiary" href="login2.php">Espace Privé</a>
+                        <a class="btn btn-secondary" href="deconnexion.php">Deconnexion</a>
+                    </div>
                     </div>
             
                 </div>
@@ -129,8 +148,8 @@ if (isset($_GET["username"])) {
            <div class="container">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="/">Accueil</a> </li>
-                <li class="breadcrumb-item"><a href="/minettes/girls/paris/">ville de la minette </a> </li>
-                <li class="breadcrumb-item active">nom de la minette</li>
+                <li class="breadcrumb-item"><a href="#"><?php echo $results[0]->ville ?> </a> </li>
+                <li class="breadcrumb-item active"><?php echo $username;?></li>
             </ol>
         </div>
 <form class="updating" action="profilesminette.php?username=<?php echo $username;?>" method="POST">
@@ -140,7 +159,7 @@ if (isset($_GET["username"])) {
                 <div class="row">
                     <!-- Left side -->
                     <div class="col-xs-4">
-                        <p class="slogan"><strong>Ville de la minette</strong></p> 
+                        <p class="slogan"><strong><?php echo $results[0]->slogan?></strong></p> 
                          <div class="pictures">
                             <div class="row lightgallery row-sm">
                                 <div class="col-xs-12 profile-picture">                        
@@ -199,15 +218,19 @@ if (isset($_GET["username"])) {
                         </div>
                         <div class="col-xs-6">
                             <div class="list">
-                                <div class="row row-sm">
+                               <div class="row row-sm">
                                     <div class="col-xs-6 label-ct">Sexe</div>
                                     <div class="col-xs-6">:<?php echo $results[0]->sexe ?></div>                            
                                     <div class="col-xs-6 label-ct">Âge</div>
                                     <div class="col-xs-6">:<?php echo $results[0]->datenaiss;?></div>
+                                    <div class="col-xs-6 label-ct">Nationalité</div>
+                                    <div class="col-xs-6">:</div>
+                                    <div class="col-xs-6 label-ct">Région d'origine</div>
+                                    <div class="col-xs-6">:</div>
                                     <div class="col-xs-6 label-ct">Orientation sexuelles</div>
                                     <div class="col-xs-6">:</div>
                                     <div class="col-xs-6 label-ct">Services offerts pour</div><div class="col-xs-6"><span>:</span><br><span></span></div>                               
-								</div>
+                                </div>
                             </div>
                         </div>
                      <div class="col-xs-6">
@@ -249,31 +272,34 @@ if (isset($_GET["username"])) {
                                 <div class="col-xs-6" wfd-id="88">
                                     <a href="/" class="bold" title="/">.. </a>
                                 </div>
-                                <div class="col-xs-6 label-ct" wfd-id="87">Disponible en:</div>
+                                <div class="col-xs-6 label-ct" wfd-id="87"></div>
                                     <div class="col-xs-6" wfd-id="86">
-                                      <a href="/" class="bold" title="/">...</a> <br>
-                                      <a href="/" class="bold" title="/">.. </a> <br>
+                                      <a href="/" class="bold" title="/"></a> <br>
+                                      <a href="/" class="bold" title="/"></a> <br>
                                   </div>
                                 <div class="col-xs-6 label-ct" wfd-id="85">Téléphone:</div>
                                 <div class="col-xs-6 label-ct" wfd-id="82">
                                     <div class="phone" wfd-id="83">
-                                        ..<div class="phone_btn phone_btn_small" wfd-id="84">
+                                    <?php foreach($coord as $cord) {?>
+                                        <?php echo $coord[0]->phonec?>
+                                        <div class="phone_btn phone_btn_small" wfd-id="84">
                                             <a href="javascript:void(0);" onclick="showNumber(9302);">Voir le numero</a>
                                         </div>
                                     </div>
                                 </div>
                         <div class="col-xs-6 label-ct" wfd-id="81">Consignes pour le téléphone:
                                 </div>
-                                <div class="col-xs-6" wfd-id="80">...
+                                <div class="col-xs-6" wfd-id="80"><?php echo $coord[0]->consigne?>
                                 </div>
                                 <div class="col-xs-6 label-ct" wfd-id="79">Apps Available:
                                 </div>
-                                <div class="col-xs-6" wfd-id="78">...
+                                <div class="col-xs-6" wfd-id="78"><?php echo $coord[0]->apps?>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                <?php }?>
                  <!--  Afficher les Services offertent -->
               
                 <div class="box service-offered">
