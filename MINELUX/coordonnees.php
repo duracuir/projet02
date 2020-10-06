@@ -5,7 +5,18 @@ if (!isset($_SESSION['username'])) {
     header('location:connexion.php');
     exit;
 }
-
+if (isset($_SESSION["username"])) {
+  $username = $_SESSION["username"];
+  try {
+    $statement = $pdo->prepare(
+      'SELECT * FROM coordonnees WHERE username = :username;'
+    );
+    $statement->execute(["username" => $username]);
+    $results = $statement->fetchAll(PDO::FETCH_OBJ);
+  } catch (PDOException $e) {
+      echo "<h4 style='color: red;'>".$e->getMessage(). "</h4>";
+  }
+}
 
 ?>
 <!DOCTYPE html>
@@ -130,24 +141,37 @@ if (!isset($_SESSION['username'])) {
 
                 <!-- Theo mets une cmd php ici pour afficher ce msg seulement que le profile est enregistre ou enregistre apres modification-->
                 <?php
+                $connection = mysqli_connect("localhost", "root", "");
+                $db = mysqli_select_db($connection, 'myminette');
                     if (isset($_POST['Submitte'])) {
                         $username = $_SESSION['username'];
                         $phone = $_POST['phone_number'];
-                        $whatsapp = $_POST['whatsapp'];
+                        $whatsapp = $_POST['apps'];
                         $consig = $_POST['consig'];
                         $url = $_POST['url'];
 
+                        $sql = $pdo->prepare("SELECT * FROM coordonnees WHERE username = :username");
+                        $sql->execute(["username"=>$username]);
+                        $results = $sql->fetchAll(PDO::FETCH_OBJ);
+                        if(!$results){
+                            if ($phone) {
+                                    $statement = $pdo -> prepare( "INSERT INTO `coordonnees` (username, apps, consigne, url, phonec)
+                                                    VALUES ('$username', '$whatsapp', '$consig', '$url', '$phone')");
+                                $statement->execute(['username'=> $username, 'apps' => $whatsapp, 'consigne'=> $consig, 'url'=> $url, 'phonec' => $phone]);
+                                echo "<p style='color: green; background-color: lightgreen;'>Vos données ont été enregistrées avec succès</p>";
 
-                        if ($phone) {
-                                $statement = $pdo -> prepare( "INSERT INTO `coordonnees` (username, apps, consigne, url, phonec)
-                                                 VALUES ('$username', '$whatsapp', '$consig', '$url', '$phone')");
-                             $statement->execute(['username'=> $username, 'apps' => $whatsapp, 'consigne'=> $consig, 'url'=> $url, 'phonec' => $phone]);
-                            echo "<p style='color: green; background-color: lightgreen;'>Vos données ont été enregistrées avec succès</p>";
-
-                        } else {
-                            echo "<p style='color: red;background-color: pink;'> Veuillez renseigner les champs vides </p>";
-                        }
-                       
+                            } else {
+                                echo "<p style='color: red;background-color: pink;'> Veuillez renseigner les champs vides </p>";
+                            }
+                    }else{
+                        $query = "UPDATE coordonnees SET apps='$_POST[apps]',consigne='$_POST[consig]', url='$_POST[url]', phonec='$_POST[phone_number]' WHERE username='$_SESSION[username]'";
+                        $query_run = mysqli_query($connection, $query);
+                        if($query_run) {
+                                echo '<script type="text/javascript"> alert("Vos données ont été modifiées avec succès") </script>';
+                            } else {
+                                echo '<script type="text/javascript"> alert("Echecs de modification de vos donnees") </script>';
+                            }
+                    }     
                          
              }
 
@@ -155,11 +179,11 @@ if (!isset($_SESSION['username'])) {
                <!--  <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
                 Votre profil a été enregistré avec succès!  -->           
             </div>
-            <form action id="bio_submit" class="submit_profile" method="post">
+            <form action="coordonnees.php?username=<?php echo $results[0]->username;?>" id="bio_submit" class="submit_profile" method="post">
              <ul class="steps">
                              <li class="active"><a href="biographie.php">Step 1:<br> Biographie</a></li>
-                            <li class=""><a href="aproposedemoi.php/">Step 2:<br>A propos de moi</a></li>
-                            <li class=""><a href="services.php">Step 3:<br>Langues</a></li>
+                            <li class=""><a href="aproposdemoi.php/">Step 2:<br>A propos de moi</a></li>
+                            <li class=""><a href="langue.php">Step 3:<br>Langues</a></li>
                             <li class=""><a href="ville-de-travail.php">Step 4:<br>Villes de travail</a></li>
                             <li class=""><a href="services.php">Step 5:<br>Service</a></li>
                             <li class=""><a href="mon-cadeau.php">Step 6:<br>Mon Cadeau</a></li>
@@ -177,7 +201,8 @@ if (!isset($_SESSION['username'])) {
                     <label for="phonenum">Téléphone*:</label>
                 </div>
                 <div class="col-xs-5 grp">
-                    <input type="text" id="phone_number" name="phone_number" value="" placeholder="Téléphone">                
+                    <input type="text" id="phone_number" name="phone_number" value=<?php echo
+            $results[0]->phonec;?> placeholder="Téléphone">                
                 </div>
 
                 <div class="col-xs-4 grp p-r-0">
@@ -189,7 +214,7 @@ if (!isset($_SESSION['username'])) {
                             <label for="viber">Viber</label>
                         </div> -->
                                             <div class="custom-checkbox">
-                            <input type="checkbox" id="whatsapp" name="whatsapp" value="whatsapp">                           
+                            <input type="checkbox" id="whatsapp" name="apps" value="whatsapp">                           
                             <label for="whatsapp">Whatsapp</label>
                         </div>
                     </div>
@@ -237,7 +262,8 @@ if (!isset($_SESSION['username'])) {
                     <label for="website">Site web / URL:</label>
                 </div>
                 <div class="col-xs-7 grp">
-                    <input type="text" id="website" name="url" value="" placeholder="Site web / URL">
+                    <input type="text" id="website" name="url" value=<?php echo
+            $results[0]->url;?> placeholder="Site web / URL">
                 </div>
                 <div class="col-xs-8 col-xs-offset-4">
                     <small>Votre site web sera visible si vous avez un <b><a target="_blank" href="/banners">bannière d'ici</a></b> ajouté dans votre site web.
@@ -248,7 +274,7 @@ if (!isset($_SESSION['username'])) {
     </div>
     <input type="hidden" id="csrf" name="csrf" value="dDZqdnY2MzRFK3gzYkgrNnljMHVQUT09">    <div class="col-xs-12">
         <div class="nextandbackBtns">
-            <button class="btn btn-primary save" name="Submitte">Enregistrer</button>
+            <button type="submit" class="btn btn-primary save" name="Submitte">Enregistrer</button>
             <!-- <a href="javascript:void(0);" onclick="doSave();" class="btn btn-primary save">Enregistrer</a> -->
         </div>
     </div>

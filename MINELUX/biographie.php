@@ -1,12 +1,12 @@
 <?php
 session_start();
-  // require('connexionBD.php');
+   require('connexionBD.php');
 $connection = mysqli_connect("localhost", "root", "");
 $db = mysqli_select_db($connection, 'myminette');
 if(isset($_POST['Save'])) {
     // $name = $_GET["username"];
  
- $query = "UPDATE `membres` SET datenaiss = '$_POST[datenaiss]', slogan = '$_POST[slogan]', region = '$_POST[region]', nationality = $_POST[nationality], epilation = '$_POST[epilation]', piercing = '$_POST[piercing]', tattoo = '$_POST[tattoo]'  WHERE username = '$_SESSION[username]' ";
+ $query = "UPDATE `membres` SET datenaiss = '$_POST[datenaiss]', slogan = '$_POST[slogan]', region = '$_POST[region]', nationality = '$_POST[nationality]', epilation = '$_POST[epilation]', piercing = '$_POST[piercing]', tattoo = '$_POST[tattoo]'  WHERE username = '$_SESSION[username]' ";
   $query_run = mysqli_query($connection, $query);
   if($query_run) {
     echo '<script type="text/javascript"> alert("Vos données ont été enregistrées avec succès") </script>';
@@ -20,6 +20,18 @@ if(!isset($_SESSION['username'])) {
     exit;
 }
 
+if (isset($_SESSION["username"])) {
+  $username = $_SESSION["username"];
+  try {
+    $statement = $pdo->prepare(
+      'SELECT * FROM membres WHERE username = :username;'
+    );
+    $statement->execute(["username" => $username]);
+    $results = $statement->fetchAll(PDO::FETCH_OBJ);
+  } catch (PDOException $e) {
+      echo "<h4 style='color: red;'>".$e->getMessage(). "</h4>";
+  }
+}
 ?>
 
 <!DOCTYPE html>
@@ -138,7 +150,7 @@ if(!isset($_SESSION['username'])) {
             </div>
 		</header>
            <main class="container">
-        <form action id="bio_submit" class="submit_profile" method="post">
+        <form action="biographie.php?username=<?php echo $results[0]->username;?>" id="bio_submit" class="submit_profile" method="post">
             <ul class="steps">
                             <li class="active"><a href="#">Step 1:<br> Biographie</a></li>
                             <li class=""><a href="aproposdemoi.php">Step 2:<br>A propos de moi</a></li>
@@ -200,13 +212,15 @@ if(!isset($_SESSION['username'])) {
                             <label for="start">Né(e) le:</label>
                         </div>
                             <div class="col-xs-5 grp">
-                            <input class="zone" id="start" name="datenaiss" type="date" value="" min="" max="" placeholder="date de naissance"> 
+                            <input class="zone" id="start" name="datenaiss" type="date" value=<?php echo
+            $results[0]->datenaiss;?> min="" max="" placeholder="date de naissance"> 
                             </div>
                             <div class="col-xs-3 grp">
                             <label for="slogan">Slogan:</label>
                         </div>
                         <div class="col-xs-9 grp">
-                            <input type="text" id="slogan" name="slogan" value="" placeholder="Slogan. Exp: la Tigresse">                            <small><b>ATTENTION:</b> Veuillez ne pas écrire les services, les tarifs ou les textes sexuellement explicites. Être discrète et transcrire vos offres.</small>
+                            <input type="text" id="slogan" name="slogan" value="<?php echo
+            $results[0]->slogan;?>" placeholder="Slogan. Exp: la Tigresse">                            <small><b>ATTENTION:</b> Veuillez ne pas écrire les services, les tarifs ou les textes sexuellement explicites. Être discrète et transcrire vos offres.</small>
                         </div>
                         <div class="col-xs-3 grp">
                             <label for="ethnicity">Origin:*</label>
@@ -215,7 +229,9 @@ if(!isset($_SESSION['username'])) {
                             <div class="bloc">
                                   <div class="select">
                                     <select name="region">
-                                      <option> Région </option>
+                                      <option value=<?php echo
+            $results[0]->region;?>><?php echo
+            $results[0]->region;?></option>
                                       <option value="Extrême-Nord">l’Extrême-Nord</option>
                                       <option value="Nord">Nord</option>
                                       <option value="Adamaoua">Adamaoua</option>
@@ -238,13 +254,16 @@ if(!isset($_SESSION['username'])) {
                             <div class="bloc">
                                   <div class="select">
                                     <select name="nationality">
-                                      <option value="active">Camerounais(e)</option>
-                                      <option value="0">Gabonais(e)</option>
-                                      <option value="1">Tchadien(ne)</option>
-                                      <option value="2">Nigerien(ne)</option>
-                                      <option value="3">Congolais(e)</option>
-                                      <option value="4">guinéen(ne)</option>
-                                      <option value="5">Autre</option>
+                                    <option value=<?php echo
+            $results[0]->nationality;?>> <?php echo
+            $results[0]->nationality;?></option>
+                                      <option value="Camerounais(e)">Camerounais(e)</option>
+                                      <option value="Gabonais(e)">Gabonais(e)</option>
+                                      <option value="Tchadien(ne)">Tchadien(ne)</option>
+                                      <option value="Nigerien(ne)">Nigerien(ne)</option>
+                                      <option value="Congolais(e)">Congolais(e)</option>
+                                      <option value="guinéen(ne)">guinéen(ne)</option>
+                                      <option value="Autre">Autre</option>
                                     </select>
                                   </div>
                                 </div>
@@ -287,6 +306,9 @@ if(!isset($_SESSION['username'])) {
                             <div class="bloc">
                                   <div class="btn dropdown-toggle btn-default">
                                     <select name="epilation">
+                                    <option value=<?php echo
+            $results[0]->epilation;?>><?php echo
+            $results[0]->epilation;?></option>
                                       <option value="Entierement Naturel">Entierement Naturel</option>
                                       <option value="Entierement rasés">Entierement rasés</option>
                                       <option value="Partiellement rasés">Partiellement rasés</option>
@@ -303,10 +325,12 @@ if(!isset($_SESSION['username'])) {
                 </div>
                 <div class="col-xs-9 grp"><div class="radio">
                         <label>
-                        <input type="radio" id="tatoo" name="tattoo" value="Oui">Oui</label>
+                        <input type="radio" id="tatoo" name="tattoo" value="<?php echo
+            $results[0]->tattoo;?>">Oui</label>
                </div>
                 <div class="radio"><label>
-                        <input type="radio" id="tatoo" name="tattoo" value="Non" checked="checked">Non</label>
+                        <input type="radio" id="tatoo" name="tattoo" value="<?php echo
+            $results[0]->tattoo;?>" checked="checked">Non</label>
                 </div>
             </div>	
                     <div class="col-xs-3 grp">
