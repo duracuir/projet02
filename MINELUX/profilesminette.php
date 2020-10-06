@@ -281,9 +281,9 @@ if (isset($_GET["username"])) {
                                 <div class="col-xs-6 label-ct" wfd-id="82">
                                     <div class="phone" wfd-id="83">
                                     <?php foreach($coord as $cord) {?>
-                                        <?php echo $coord[0]->phonec?>
-                                        <div class="phone_btn phone_btn_small" wfd-id="84">
-                                            <a href="javascript:void(0);" onclick="showNumber(9302);">Voir le numero</a>
+                                        <?php echo $coord[0]->phonec?></div>
+                                            <input type="button" id="shows" class="phone_btn phone_btn_small" wfd-id="84" value="Voir le numero">
+                                            <!-- <a href="javascript:void(0);" onclick="showNumber(9302);">Voir le numero</a> -->
                                         </div>
                                     </div>
                                 </div>

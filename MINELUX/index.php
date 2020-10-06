@@ -1,10 +1,10 @@
 <?php
     require('connexionBD.php');
 session_start();
-if(!isset($_SESSION['username'])){
-    header('Location: connexion.php');
-    exit;
-}
+// if(!isset($_SESSION['username'])){
+//     header('Location: connexion.php');
+//     exit;
+// }
 
 
 ?>
@@ -315,13 +315,12 @@ if(!isset($_SESSION['username'])){
                                         while ($row = mysqli_fetch_assoc($result)) {
                                             echo '<a href="profilesminette.php?username='.$row["username"].'">
                                             <div style="background-image: url(images/gallery/'.$row["photos"].');">
-                                            </div>
-                                            <div class="overlay">
                                             <p class="listing_desc">Voir plus...</p>
                                             <p class="city">'.$row["username"].'</p>
                                             <p class="city">'.$row["ville"].'</p>
                                             <p class="age">'.$row["datenaiss"].'</p>
                                             <p class="btn git">Voir plus...</p>
+                                            </div>
                                         </a>';
                                         }
                                     }
