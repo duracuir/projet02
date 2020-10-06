@@ -1,5 +1,5 @@
-                           
-                            /*GENERAL*/
+
+/*GENERAL*/
 body
 {
     font-family: 'Open sans' , sans-serif;
@@ -243,11 +243,17 @@ a
     top: -20px;
     z-index: 2;
 }
-#home .city-list .city
+.city-list .city
 {
     font-size: 13px;
     color: #171717;
     margin-bottom: 12px;
+}
+.citys{
+    position: relative;
+    top: 300px;
+    left: 38%;
+    color: #fff;
 }
 .one-6
 {
@@ -700,14 +706,14 @@ a
 {
     width: 33.33%;
 }
-#home .escort .img
+/* #home .escort .img
 {
     position: relative;
     width: 302px;
     height: 443px;
     background: #fff;
-}
-#home .escort .img .badges
+} */
+/* #home .escort .img .badges
 {
     position: absolute;
     top: 0;
@@ -715,8 +721,8 @@ a
     right: 0;
     bottom: 0;
     z-index: 2;
-}
-#home .escort .img .badges .top-left
+} */
+/* #home .escort .img .badges .top-left
 {
     position: absolute;
     top: -3px;
@@ -726,14 +732,14 @@ a
 {
     width: 132px;
     height: 132px;
-}
-#home .escort .img .badges .top-right
+} */
+/* #home .escort .img .badges .top-right
 {
     position: absolute;
     top: 0;
     right: 8px;
-}
-#home .escort .img .badges .top-right .badge-md
+} */
+/* #home .escort .img .badges .top-right .badge-md
 {
     display: block;
     margin: 8px;
@@ -758,9 +764,7 @@ a
     width: 50px;
     height: 50px;
     position: relative;
-}
-#home .escort .img .overlay .name
-
+} */
 #home .escort .img .overlay{
     position: absolute;
     top: 0;
@@ -788,16 +792,16 @@ a
     visibility: visible;
 */
 
-#home .escort .img .overlay .name {
+/* #home .escort .img .overlay .name {
     font-weight: 700;
     font-size: 22px;
-}
+} */
 .listing_desc 
 {
     height: 30px;
     overflow: hidden;
     color: #fff;
-    padding: 0 10px;
+    padding: 0 50px;
     font-size: 10px;
 }
 #home .escort .img .overlay .city, #home .escort .img .overlay .name, #home .escort .img .overlay .age  {
@@ -813,20 +817,24 @@ a
 .listing_desc {
     height: 30px;
    overflow: hidden;
-    color: #fff;
+    color: rgba(46, 40, 40, 0.938);
     z-index: 4;
     position: relative;
-    margin-bottom: 5px;
+    margin-bottom: 15px;
     text-transform: uppercase;
     font-family: 'Montserrat';
     font-weight: 400;
     font-size: 18px;
+   
 }
-#home .escort .img .overlay .git 
+.git 
 {
     z-index: 4;
     position: relative;
-    border: 1px solid #fff;
+    top: 300px;
+    left: 100px;
+    border: 2px solid #fff;
+    border-radius: 6px;
     margin-top: 25px;
     color: #fff;
 }
@@ -962,18 +970,11 @@ footer {
 }
 
 
-
-
-
-
-
-
 /*GELERIE PHOTOS*/
 
-
-
 .gallery-container a:hover {
-    opacity: 0.8;
+    opacity: 0.3;
+    visibility: visible;
 }
 
 .gallery-container a div {

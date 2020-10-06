@@ -293,8 +293,7 @@ session_start();
                     <div class="escorts">
                       <div class="row row-sm">  
                          <div class="col-xs-4 escort">
-                             <div class="d-flex flex-row bd-highlight mb-3">
-                                 <div class=""></div>
+                                 <div class="overlay">
                              <section class="gallery-links">
                                  <div class="wrapper">
                                     <div class="gallery-container">
@@ -314,17 +313,20 @@ session_start();
                                         $result = mysqli_stmt_get_result($stmt);
                                         while ($row = mysqli_fetch_assoc($result)) {
                                             echo '<a href="profilesminette.php?username='.$row["username"].'">
+                                            <div class="listing_desc">
                                             <div style="background-image: url(images/gallery/'.$row["photos"].');">
-                                            <p class="listing_desc">Voir plus...</p>
-                                            <p class="city">'.$row["username"].'</p>
-                                            <p class="city">'.$row["ville"].'</p>
-                                            <p class="age">'.$row["datenaiss"].'</p>
+                                            <p class="citys">'.$row["username"].'</p>
+                                            <p class="citys">'.$row["ville"].'</p>
+                                            <p class="citys">'.$row["datenaiss"].'</p>
                                             <p class="btn git">Voir plus...</p>
                                             </div>
+                                            </div>
+                                            
                                         </a>';
                                         }
                                     }
                                     ?>
+                                    </div>
                                     </div>
                             </div>
                         </div>
@@ -350,20 +352,22 @@ session_start();
                     </div>
                     <div class="text-box">
                         Le site très complet et varié offre une multitude d’offres de minette pour une clientèle variée. Vous pourrez ainsi trouver une compagnie le temps d’une soirée, ou pour quelques heures lors d’un repas privé ou professionnel. 
-                                    Vous recherchez des viva streets de minette girls, des punternet minette, des nouvelles minettes de luxe, des minettes indépendantes, des TOP minettes et des VIP minettes. Vous trouverez obligatoirement la partenaire de vos rêves en fonction de vos critères et de vos envies. La panoplie de minette est telle que vous trouverez certainement de minette qui vous fera passer un moment très agréable et inoubliable. Nos minettes vous offrent un moment à vous, elles se plient à vos désirs et écoutent vos attentes. Vous êtes le décideur de ce moment ensemble et vous l’emmènerez dans l’endroit de votre choix et la soirée que vous aviez prévue.
-
-                                    Accompagnatrice VIP 
+                                    Vous recherchez des viva streets de minette girls, des punternet minette, des nouvelles minettes de luxe, des minettes indépendantes, des TOP minettes et des VIP minettes. Vous trouverez obligatoirement la partenaire de vos rêves en fonction de vos critères et de vos envies. La panoplie de minette est telle que vous trouverez certainement de minette qui vous fera passer un moment très agréable et inoubliable. Nos minettes vous offrent un moment à vous, elles se plient à vos désirs et écoutent vos attentes. Vous êtes le décideur de ce moment ensemble et vous l’emmènerez dans l’endroit de votre choix et la soirée que vous aviez prévue.<br>
+<br>
+                                    <strong>Accompagnatrice VIP</strong><br>
+                                    <br>
                                     L’accompagnatrice VIP est une partenaire de choix pour des clients exigeants. Vous trouverez de nouvelles minettes, nouvelles VIP minettes et nouvelles call girls sur le site. 
                                     minelux.com est un annuaire présentant des annonces de minette dans tout le Cameroun, avec lesquelles vous pouvez discuter sur Whatsapp. Grâce à ce site, vous pourrez bénéficier d’attention et d’une discrétion totale concernant les services fournis. 
-                                    Si vous souhaitez apporter un peu de peps à votre vie plutôt monotone, vous prenez contact avec une minette qui vous plait particulièrement. Si vous êtes pris par la routine au sein de votre couple et vous avez envie de mettre un peu de piment dans votre vie sexuelle, n’hésitez pas à consulter les différentes annonces.
-
-                                    Des prestations sur mesure 
-                                    Toutes les minettes sont prêtes à satisfaire vos moindres désirs, à vous contenter selon vos envies. 
+                                    Si vous souhaitez apporter un peu de peps à votre vie plutôt monotone, vous prenez contact avec une minette qui vous plait particulièrement. Si vous êtes pris par la routine au sein de votre couple et vous avez envie de mettre un peu de piment dans votre vie sexuelle, n’hésitez pas à consulter les différentes annonces.<br>
+<br>
+                                    <strong>prestations sur mesure</strong>  <br>
+                                    <br>Toutes les minettes sont prêtes à satisfaire vos moindres désirs, à vous contenter selon vos envies. 
                                     Plusieurs types de services sont proposés par les minettes, vous pourrez ainsi profiter de différents massages comme le massage érotique, massage intime garanti pour vous faire sentir au septième ciel. 
                                     La minettes que vous aurez contactée au préalable, pourra vous joindre et convenir avec vous d’un lieu de rendez-vous en fonction de votre emploi du temps et de votre disponibilité. 
-                                    Des minettes boys pour le bonheur de ces dames sont également présents sur le site, vous pourrez discuter avec eux pour connaître leurs goûts et envies. Ils vous poseront des questions pour mieux cerner vos attentes. Votre satisfaction est leur priorité. 
-
-                                    Un site dédié aux clients 
+                                    Des minettes boys pour le bonheur de ces dames sont également présents sur le site, vous pourrez discuter avec eux pour connaître leurs goûts et envies. Ils vous poseront des questions pour mieux cerner vos attentes. Votre satisfaction est leur priorité. <br>
+<br>
+                                    <strong>Un site dédié aux clients </strong><br>
+                                    <br>
                                     Sur minelux.com, vous pourrez vous inscrire et en tant que membre, vous aurez accès aux feedbacks des clients et d’autres membres. Cette rubrique est une garantie exceptionnelle d’expérience de qualité avec vos nouvelles minettes. De nombreuses annonces sont consultables en ligne et vous pourrez découvrir les photos des candidates, vous pouvez sélectionner une minette en particulier, découvrir sa présentation et ensuite, lui envoyer un message SMS. , elle pourra vous répondre de manière immédiate. Elle se fera un grand plaisir d’indiquer dans son message tout ce que vous désirez savoir sur elle. 
                                     Notre site supervise l’activité en ligne de chaque minette. Toutes les annonces sont vérifiées ainsi vous pourrez les consulter de façon sereine. 
                                     Toutes les minettes sont belles naturellement. Très bien éduquées, polies, intelligentes, elles possèdent une conversation multiple et des connaissances dans plusieurs domaines. Elles pourront vous contacter et vous rencontrer sur le lieu de votre choix.  
