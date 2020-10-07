@@ -1,4 +1,79 @@
+<?php
+session_start();
+require('connexionBD.php');
+        $connection = mysqli_connect("localhost", "root", "");
+                $db = mysqli_select_db($connection, 'myminette');
+                    if (isset($_POST['Save'])) {
+                        $username = $_SESSION['username'];
+                        $ville = $_POST['ville'];
+                        $secondlieu = $_POST['secondlieu'];
+                        $incall = $_POST['incall'];
+                        $outcall = $_POST['outcall'];
+                        $recoit = $_POST['incall_type'];
+                        $typehotel = $_POST['incall_hotel_room'];
+                        $lieudeplace = $_POST['outcall_type'];
+                        
 
+                        $sql = $pdo->prepare("SELECT * FROM ville_travail WHERE username = :username");
+                        $sql->execute(["username"=>$username]);
+                        $results = $sql->fetchAll(PDO::FETCH_OBJ);
+                        if(!$results){
+                            if ($ville) {
+                                    $statement = $pdo -> prepare( "INSERT INTO `ville_travail` (username, ville, secondlieu)
+                                                    VALUES ('$username', '$ville', '$secondlieu')");
+                                $statement->execute(['username'=> $username, 'ville' => $ville, 'secondlieu'=> $secondlieu]);
+                                echo "<p style='color: green; background-color: lightgreen;'>Vos données ont été enregistrées avec succès</p>";
+
+                            } else {
+                                echo "<p style='color: red;background-color: pink;'> Veuillez renseigner les champs vides </p>";
+                            }
+                    }else{
+                        $query = "UPDATE ville_travail SET ville='$_POST[ville]',secondlieu='$_POST[secondlieu]' WHERE username='$_SESSION[username]'";
+                        $query_run = mysqli_query($connection, $query);
+                        if($query_run) {
+                                echo '<script type="text/javascript"> alert("Vos données ont été modifiées avec succès") </script>';
+                            } else {
+                                echo '<script type="text/javascript"> alert("Echecs de modification de vos donnees") </script>';
+                            }
+                    }    
+                               
+                   $sql = $pdo->prepare("SELECT * FROM rendezvous WHERE username = :username");
+                        $sql->execute(["username"=>$username]);
+                        $results = $sql->fetchAll(PDO::FETCH_OBJ);
+                        if(!$results){
+                            if ($ville) {
+                                    $statement = $pdo -> prepare( "INSERT INTO `rendezvous` (username, incall, outcall, recoit, typehotel, lieudeplace)
+                                                    VALUES ('$username', '$incall', '$outcall', '$recoit', '$typehotel', '$lieudeplace')");
+                                $statement->execute(['username'=> $username, 'incall' => $incall, 'outcall'=> $outcall,'recoit'=> $recoit, 'typehotel'=> $typehotel, 'lieudeplace'=> $lieudeplace ]);
+                                echo "<p style='color: green; background-color: lightgreen;'>Vos données ont été enregistrées avec succès</p>";
+
+                            } else {
+                                echo "<p style='color: red;background-color: pink;'> Veuillez renseigner les champs vides </p>";
+                            }
+                    }else{
+                        $query = "UPDATE rendezvous SET incall='$_POST[incall]',outcall='$_POST[outcall]',recoit='$_POST[incall_type]' ,typehotel='$_POST[incall_hotel_room]' ,lieudeplace='$_POST[outcall_type]' WHERE username='$_SESSION[username]'";
+                        $query_run = mysqli_query($connection, $query);
+                        if($query_run) {
+                                echo '<script type="text/javascript"> alert("Vos données ont été modifiées avec succès") </script>';
+                            } else {
+                                echo '<script type="text/javascript"> alert("Echecs de modification de vos donnees") </script>';
+                            }
+                    }         
+             }
+    if (isset($_SESSION["username"])) {
+  $username = $_SESSION["username"];
+  try {
+    $statement = $pdo->prepare(
+      'SELECT * FROM ville_travail WHERE username = :username;'
+    );
+    $statement->execute(["username" => $username]);
+    $results = $statement->fetchAll(PDO::FETCH_OBJ);
+  } catch (PDOException $e) {
+      echo "<h4 style='color: red;'>".$e->getMessage(). "</h4>";
+  }
+}
+
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -118,7 +193,7 @@
             </div>
 		</header>
            <main class="container">
-            <form action id="bio_submit" class="submit_profile" method="post">
+            <form action="ville-de-travail.php?username=<?php echo $results[0]->username;?>" id="bio_submit" class="submit_profile" method="post">
              <ul class="steps">
                             <li class="active"><a href="biographie.php">Step 1:<br> Biographie</a></li>
                             <li class=""><a href="aproposdemoi.php">Step 2:<br>A propos de moi</a></li>
@@ -218,19 +293,20 @@
                                             <div class="col-xs-5 grp">
                                                 <div class="bloc">
                                                       <div class="select">
-                                                        <select>
-                                                          <option> Douala </option>
-                                                          <option value="0">Yaounde</option>
-                                                          <option value="1">Garoua</option>
-                                                          <option value="2">Bamenda</option>
-                                                          <option value="3">Kribi</option>
-                                                          <option value="4">limbe</option>
-                                                          <option value="5">Bafoussam</option>
-                                                          <option value="6">Dschang</option>
-                                                          <option value="7">Kumba</option>
-                                                          <option value="8">Buea</option>
-                                                          <option value="9">Ngaoundéré</option>
-                                                          <option value="10">Autre à préciser</option>
+                                                        <select name="ville">
+                                                        <option value=<?php echo $results[0]->ville;?>><?php echo $results[0]->ville;?></option>
+                                                          <option value="Douala"> Douala </option>
+                                                          <option value="Yaounde">Yaounde</option>
+                                                          <option value="Garoua">Garoua</option>
+                                                          <option value="Bamenda">Bamenda</option>
+                                                          <option value="Kribi">Kribi</option>
+                                                          <option value="limbe">limbe</option>
+                                                          <option value="Bafoussam">Bafoussam</option>
+                                                          <option value="Dschang">Dschang</option>
+                                                          <option value="Kumba">Kumba</option>
+                                                          <option value="Buea">Buea</option>
+                                                          <option value="Ngaoundéré">Ngaoundéré</option>
+                                                          <option value="Autre à préciser">Autre à préciser</option>
                                                         </select>
                                                       </div>
                                                     </div>
@@ -248,7 +324,7 @@
                                     <div class="col-xs-5 grp">
                                                 <div class="bloc">
                                                       <div class="select">
-                                                        <select>
+                                                        <select name="secondlieu">
                                                           <option value="0">Autre à préciser</option>
                                                         </select>
                                                       </div>
@@ -262,18 +338,18 @@
         <div class="box" id="incall_type">
             <h3 class="heading">Incall</h3>
             <div class="custom-checkbox grp">
-                <input type="checkbox" id="incall" name="incall" value="1" checked="checked">              <label for="incall">Incall</label>
+                <input type="checkbox" id="incall" name="incall" value="Incall" checked="checked">              <label for="incall">Incall</label>
                                 </div><br>
                                 <div class="p-l-25">
                      <div class="grp">
                          <div class="radio">
                             <label for="in-appartement-prive">
-                                <input type="radio" id="in-appartement-prive" name="incall_type" value="1" class="incall_type_class" checked="checked"><span>Appartement privé</span>
+                                <input type="radio" id="in-appartement-prive" name="incall_type" value="Appartement privé" class="incall_type_class" checked="checked"><span>Appartement privé</span>
                             </label>
                         </div><br>
                         <div class="radio">
                             <label for="in-chambre-d-hotel">
-                                <input type="radio" id="in-chambre-d-hotel" name="incall_type" value="2" class="incall_type_class incall_hotel">                                <span>Chambre d'hôtel</span>
+                                <input type="radio" id="in-chambre-d-hotel" name="incall_type" value="Chambre d'hôtel" class="incall_type_class incall_hotel">                                <span>Chambre d'hôtel</span>
                             </label>
                         </div><br>
                         <div class="p-l-25">
@@ -314,7 +390,7 @@
                                     </div>
                                     <div class="radio">
                             <label for="in-club-studio">
-                                <input type="radio" id="in-club-studio" name="incall_type" value="3" class="incall_type_class"><span>Club/Studio</span>
+                                <input type="radio" id="in-club-studio" name="incall_hotel_room" value="3" class="incall_type_class"><span>Club/Studio</span>
                             </label>
                         </div><br>
                                     <div class="radio">
@@ -335,32 +411,32 @@
         <div class="box" id="outcall_type">
             <h3 class="heading">Outcall</h3>
             <div class="custom-checkbox grp">
-                <input type="checkbox" id="outcall" name="outcall" value="1">          
+                <input type="checkbox" id="outcall" name="outcall" value="Outcall">          
                  <label for="outcall">Outcall</label>
             </div><br>
             <div class="p-l-25">
                 <div class="grp">
                     <div class="radio">
                             <label for="out-uniquement-visites-a-l-hotel">
-                                <input type="radio" id="out-uniquement-visites-a-l-hotel" name="outcall_type" value="1" class="outcall_type_class" disabled="disabled">   
+                                <input type="radio" id="out-uniquement-visites-a-l-hotel" name="outcall_type" value="Uniquement visites à l'hôtel" class="outcall_type_class" disabled="disabled">   
                                 <span>Uniquement visites à l'hôtel</span>
                             </label>
                         </div><br>
                         <div class="radio">
                             <label for="out-uniquement-visites-a-la-maison">
-                                <input type="radio" id="out-uniquement-visites-a-la-maison" name="outcall_type" value="2" class="outcall_type_class" disabled="disabled">  
+                                <input type="radio" id="out-uniquement-visites-a-la-maison" name="outcall_type" value="Uniquement visites à la maison" class="outcall_type_class" disabled="disabled">  
                                 <span>Uniquement visites à la maison</span>
                             </label>
                         </div><br>
                         <div class="radio">
                             <label for="out-visites-a-l-hotel-et-a-la-maison">
-                                <input type="radio" id="out-visites-a-l-hotel-et-a-la-maison" name="outcall_type" value="3" class="outcall_type_class" disabled="disabled">   
+                                <input type="radio" id="out-visites-a-l-hotel-et-a-la-maison" name="outcall_type" value="Visites à l'hôtel et à la maison" class="outcall_type_class" disabled="disabled">   
                                 <span>Visites à l'hôtel et à la maison</span>
                             </label>
                         </div><br>
                         <div class="radio">
                             <label for="out-autres-veuillez-fournir-des-details">
-                                <input type="radio" id="out-autres-veuillez-fournir-des-details" name="outcall_type" value="4" class="outcall_type_class" disabled="disabled">  
+                                <input type="radio" id="out-autres-veuillez-fournir-des-details" name="outcall_type" value="Autres ( veuillez fournir des détails)" class="outcall_type_class" disabled="disabled">  
                                 <span>Autres ( veuillez fournir des détails)</span>
                             </label>
                         </div><br>
@@ -379,7 +455,8 @@
 
                 <div class="col-xs-12">
                      <div class="nextandbackBtns">
-                      <a href="javascript:void(0);" onclick="doSave();" class="btn btn-primary save">Enregistrer</a>
+                     <button type="submit" class="btn btn-primary save" name="Save">Enregistrer</button>
+                      <!-- <a href="javascript:void(0);" onclick="doSave();" class="btn btn-primary save">Enregistrer</a> -->
                      </div>
                     </div>
             </div>
