@@ -5,10 +5,6 @@ if (!isset($_SESSION['username'])) {
     header('location:connexion.php');
     exit;
 }
-
- 
-
-
 ?>
 <!DOCTYPE html>
 <html>
@@ -98,9 +94,6 @@ if (!isset($_SESSION['username'])) {
 		</header>
            <main class="container">
             <div class="alert alert-success">
-
-                <!-- Theo mets une cmd php ici pour afficher ce msg seulement que le profile est enregistre ou enregistre apres modification-->
-
 <!--
                 <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
                 Votre profil a été enregistré avec succès!            
@@ -243,7 +236,9 @@ if (!isset($_SESSION['username'])) {
                         <div class="custom-checkbox">
                             <input type="checkbox" id="services_68" name="services_offered" value="Handjob" class="checkboxx">                                <label for="services_68">Handjob</label>
                             </div><br>
-                        <div class="custom-checkbox">
+                            </div>
+                    <div class="col-xs-4">
+                            <div class="custom-checkbox">
                             <input type="checkbox" id="services_61" name="services_offered" value="Bain à bulles" class="checkboxx">                                <label for="services_61">Bain à bulles</label>
                             </div><br>
                         <div class="custom-checkbox">
@@ -258,8 +253,7 @@ if (!isset($_SESSION['username'])) {
                             <input type="checkbox" id="services_56" name="services_offered" value="Bodymassage avec mousse" class="checkboxx">                                
                             <label for="services_56">Bodymassage avec mousse</label>
                             </div><br>
-                            </div>
-                    <div class="col-xs-4">
+                    
                         <div class="custom-checkbox">
                             <input type="checkbox" id="services_13" name="services_offered" value="Lécher et sucer les testicules" class="checkboxx">                                
                             <label for="services_13">Lécher et sucer les testicules</label>
@@ -311,6 +305,8 @@ if (!isset($_SESSION['username'])) {
                             <input type="checkbox" id="services_27" name="services_offered" value="Sexe à l'extérieur" class="checkboxx">                                
                             <label for="services_27">Sexe à l'extérieur</label>
                             </div><br>
+                            </div>
+                    <div class="col-xs-4">
                         <div class="custom-checkbox">
                             <input type="checkbox" id="services_28" name="services_offered" value="Expérience de star du porno (PSE)" class="checkboxx">                                
                             <label for="services_28">Expérience de star du porno (PSE)</label>
@@ -319,6 +315,7 @@ if (!isset($_SESSION['username'])) {
                             <input type="checkbox" id="services_29" name="services_offered" value="Photos privées" class="checkboxx">                                
                             <label for="services_29">Photos privées</label>
                             </div><br>
+                            
                         <div class="custom-checkbox">
                             <input type="checkbox" id="services_66" name="services_offered" value="Private Videos" class="checkboxx">                                
                             <label for="services_66">Private Videos</label>
@@ -419,6 +416,7 @@ if (!isset($_SESSION['username'])) {
                 </div>
             </div>
         </div>
+        
     </footer>
 </body>
 </html>

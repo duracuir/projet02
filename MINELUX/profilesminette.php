@@ -220,34 +220,34 @@ if (isset($_GET["username"])) {
                             <div class="list">
                                <div class="row row-sm">
                                     <div class="col-xs-6 label-ct">Sexe</div>
-                                    <div class="col-xs-6">:<?php echo $results[0]->sexe ?></div>                            
+                                    <div class="col-xs-6"><?php echo $results[0]->sexe ?></div>                            
                                     <div class="col-xs-6 label-ct">Âge</div>
-                                    <div class="col-xs-6">:<?php echo $results[0]->datenaiss;?></div>
+                                    <div class="col-xs-6"><?php echo $results[0]->datenaiss;?></div>
                                     <div class="col-xs-6 label-ct">Nationalité</div>
-                                    <div class="col-xs-6">:</div>
+                                    <div class="col-xs-6"></div>
                                     <div class="col-xs-6 label-ct">Région d'origine</div>
-                                    <div class="col-xs-6">:</div>
+                                    <div class="col-xs-6"></div>
                                     <div class="col-xs-6 label-ct">Orientation sexuelles</div>
-                                    <div class="col-xs-6">:</div>
-                                    <div class="col-xs-6 label-ct">Services offerts pour</div><div class="col-xs-6"><span>:</span><br><span></span></div>                               
+                                    <div class="col-xs-6"></div>
+                                    <div class="col-xs-6 label-ct">Services offerts pour</div><div class="col-xs-6"><span></span><br><span></span></div>                               
                                 </div>
                             </div>
                         </div>
                      <div class="col-xs-6">
                          <div class="list">
                             <div class="col-xs-6 label-ct">Epilation du maillot</div>
-							<div class="col-xs-6">:<?php echo $results[0]->epilation;?></div>
+							<div class="col-xs-6"><?php echo $results[0]->epilation;?></div>
                             <div class="col-xs-6 label-ct">Tattoo</div>
-                            <div class="col-xs-6">:<?php echo $results[0]->tattoo;?></div> 
+                            <div class="col-xs-6"><?php echo $results[0]->tattoo;?></div> 
                             <div class="col-xs-6 label-ct">Piercings</div>
-                            <div class="col-xs-6">:<?php echo $results[0]->piercing;?></div>
+                            <div class="col-xs-6"><?php echo $results[0]->piercing;?></div>
                             <div class="col-xs-6 label-ct">Langues</div>
-                            <div class="col-xs-6">:<?php echo $results[0]->langue;?></div>
+                            <div class="col-xs-6"><?php echo $results[0]->langue;?></div>
                             
                             <div class="col-xs-6 label-ct">Disponible pour</div>
                             <div class="col-xs-6">
-                                <span class="label-ct">Reçoit :</span><br>
-                                <span class="label-ct">Déplace :</span><br>
+                                <span class="label-ct">Reçoit</span><br>
+                                <span class="label-ct">Déplace</span><br>
                             </div>
                         </div>
                         </div>

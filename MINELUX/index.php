@@ -21,13 +21,8 @@ session_start();
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="css/bootstrap.min.css">
         <link rel="stylesheet" href="css/home.css">
-        <script src="js/script.js"></script>
-        <script type="application/javascript">
-                var user_info = { 'logged_in':false, 'user_id': null, 'user_type': null };
-                var signon_link = "signup.html";
-        var env = 'production';
-        </script>
     </head>
 <body id="home">
      <svg id="svg-source" height="0" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -193,7 +188,7 @@ session_start();
               
                     </div>
                     </div>
-            <div class="content">
+             <div class="content">
               <div class="home-search">
                     <div class="search-toggle">
                         <a href="javascript:void(0);" class="btn s-toggle current advanced-off"><span>Normal search </span></a>
@@ -289,14 +284,18 @@ session_start();
                         </form>
                     </div>
                 </div>
+                <style></style>
                 <main class="content">
+                <div class=""></div>
                     <div class="escorts">
-                      <div class="row row-sm">  
+                      <div class="row row-sm" >  
                          <div class="col-xs-4 escort">
-                                 <div class="overlay">
+                         <div class="overlay">
                              <section class="gallery-links">
                                  <div class="wrapper">
                                     <div class="gallery-container">
+                                        <div class="flex-container">
+                                        <!-- <div class="col-md-4"> -->
                                     <?php
                                     $servername = "localhost";
                                     $username = "root";
@@ -326,11 +325,13 @@ session_start();
                                         }
                                     }
                                     ?>
+                                       </div>
+                                        </div>
                                     </div>
                                     </div>
                             </div>
                         </div>
-                        </div>
+                        
 
                         </section>
                                          <!-- <a class="profile_a" href=""></a>  -->
@@ -338,11 +339,12 @@ session_start();
                     </div>
                     </div>
                     </div>
+                    </div>
                 </main>
                 </div>
                 </div>
              </div>
-            </div>
+             </div>
             </div>
         </main>
    <!--  message aux visiteurs  -->
@@ -405,6 +407,7 @@ session_start();
         </div>
         <div class="copy"><small>© MINELUX 2020 Copyrigth All rigths reserved. V1.0 </small></div>
     </footer>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
     </body>
 
     </html>

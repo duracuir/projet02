@@ -614,7 +614,7 @@ input, button, select, textarea {
 #edit-profile .box .custom-checkbox {
     font-size: 15px;
     color: #000; 
-    /*font-weight: bold;*/
+    font-weight: bold;
 }
 .custom-checkbox {
     position: relative;
@@ -657,7 +657,7 @@ input[type="checkbox" i] {
     font-weight: 400;
 }
 .custom-checkbox input[type=checkbox] {
-    visibility: hidden;
+    visibility: ;
     width: 0;
     height: 0;
 }

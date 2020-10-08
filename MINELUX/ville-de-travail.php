@@ -193,7 +193,7 @@ require('connexionBD.php');
             </div>
 		</header>
            <main class="container">
-            <form action="ville-de-travail.php?username=<?php echo $results[0]->username;?>" id="bio_submit" class="submit_profile" method="post">
+            <form action id="working_submit" action="ville-de-travail.php?username=<?php echo $results[0]->username;?>" id="bio_submit" class="submit_profile" method="post">
              <ul class="steps">
                             <li class="active"><a href="biographie.php">Step 1:<br> Biographie</a></li>
                             <li class=""><a href="aproposdemoi.php">Step 2:<br>A propos de moi</a></li>
@@ -295,18 +295,27 @@ require('connexionBD.php');
                                                       <div class="select">
                                                         <select name="ville">
                                                         <option value=<?php echo $results[0]->ville;?>><?php echo $results[0]->ville;?></option>
-                                                          <option value="Douala"> Douala </option>
-                                                          <option value="Yaounde">Yaounde</option>
-                                                          <option value="Garoua">Garoua</option>
-                                                          <option value="Bamenda">Bamenda</option>
-                                                          <option value="Kribi">Kribi</option>
+                                                          <option value="douala"> Douala </option>
+                                                          <option value="yaounde">Yaounde</option>
+                                                          <option value="garoua">Garoua</option>
+                                                          <option value="bamenda">Bamenda</option>
+                                                          <option value="kribi">Kribi</option>
                                                           <option value="limbe">limbe</option>
-                                                          <option value="Bafoussam">Bafoussam</option>
-                                                          <option value="Dschang">Dschang</option>
-                                                          <option value="Kumba">Kumba</option>
-                                                          <option value="Buea">Buea</option>
-                                                          <option value="Ngaoundéré">Ngaoundéré</option>
-                                                          <option value="Autre à préciser">Autre à préciser</option>
+                                                          <option value="bafoussam">Bafoussam</option>
+                                                          <option value="dschang">Dschang</option>
+                                                          <option value="kumba">Kumba</option>
+                                                          <option value="buea">Buea</option>
+                                                          <option value="ngaoundéré">Ngaoundéré</option>
+                                                          <option value="bertoua">Bértoua</option>
+                                                          <option value="loum">Loum</option>
+                                                          <option value="kumba">Kumba</option>
+                                                          <option value="foumban">Foumban</option>
+                                                          <option value="mbouda">Mbouda</option>
+                                                          <option value="tiko">Tiko</option>
+                                                          <option value="bafang">Bafang</option>
+                                                          <option value="samgmelima">Samgmélima</option>
+                                                          <option value="mbanga">Mbanga</option>
+                                                          <option value="mélong">Mélong</option>
                                                         </select>
                                                       </div>
                                                     </div>
@@ -315,13 +324,45 @@ require('connexionBD.php');
                                         </div>
                                     </div>
                                     <div class="col-xs-6">
-                            <div class="box">
-                                <h3 class="heading heading2">Un autre lieu de Travail (optionel)</h3>
-                                <div class="row">
+                                    <div class="box">
+                                 <h3 class="heading heading2">Un autre lieu de Travail (optionel)</h3>
+                                    <div class="row">
                                     <div class="col-xs-3 grp">
                                         <label class="city2nd">Second lieu:</label>
                                     </div>
-                                    <div class="col-xs-5 grp">
+                                    <div class="bloc">
+                                                      <div class="select">
+                                                        <select name="ville">
+                                                        <option value=<?php echo $results[0]->ville;?>><?php echo $results[0]->ville;?>
+                                                    </option>
+                                                          <option value="douala"> Douala </option>
+                                                          <option value="yaounde">Yaounde</option>
+                                                          <option value="garoua">Garoua</option>
+                                                          <option value="bamenda">Bamenda</option>
+                                                          <option value="kribi">Kribi</option>
+                                                          <option value="limbe">limbe</option>
+                                                          <option value="bafoussam">Bafoussam</option>
+                                                          <option value="dschang">Dschang</option>
+                                                          <option value="kumba">Kumba</option>
+                                                          <option value="buea">Buea</option>
+                                                          <option value="ngaoundéré">Ngaoundéré</option>
+                                                          <option value="bertoua">Bértoua</option>
+                                                          <option value="loum">Loum</option>
+                                                          <option value="kumba">Kumba</option>
+                                                          <option value="foumban">Foumban</option>
+                                                          <option value="mbouda">Mbouda</option>
+                                                          <option value="tiko">Tiko</option>
+                                                          <option value="bafang">Bafang</option>
+                                                          <option value="samgmelima">Samgmélima</option>
+                                                          <option value="mbanga">Mbanga</option>
+                                                          <option value="mélong">Mélong</option>
+                                                        </select>
+                                                      </div>
+                                                    </div>
+                                                </div>
+                                             </div>
+                                        </div>
+                                    <!-- <div class="col-xs-5 grp">
                                                 <div class="bloc">
                                                       <div class="select">
                                                         <select name="secondlieu">
@@ -329,129 +370,128 @@ require('connexionBD.php');
                                                         </select>
                                                       </div>
                                                     </div>
-                                                </div>
-                                             </div>
-                                            </div>
-                                        </div>
+                                                </div> -->
+                                           
+                                        
                                 </div>
                                 <div class="col-xs-6">
-        <div class="box" id="incall_type">
-            <h3 class="heading">Incall</h3>
-            <div class="custom-checkbox grp">
-                <input type="checkbox" id="incall" name="incall" value="Incall" checked="checked">              <label for="incall">Incall</label>
-                                </div><br>
-                                <div class="p-l-25">
-                     <div class="grp">
-                         <div class="radio">
-                            <label for="in-appartement-prive">
-                                <input type="radio" id="in-appartement-prive" name="incall_type" value="Appartement privé" class="incall_type_class" checked="checked"><span>Appartement privé</span>
-                            </label>
-                        </div><br>
-                        <div class="radio">
-                            <label for="in-chambre-d-hotel">
-                                <input type="radio" id="in-chambre-d-hotel" name="incall_type" value="Chambre d'hôtel" class="incall_type_class incall_hotel">                                <span>Chambre d'hôtel</span>
-                            </label>
-                        </div><br>
-                        <div class="p-l-25">
-                            <div class="radio">
-                                        <label for="5-star">
-                                    <input id="5-star" class="incall_hotel_room" type="radio" checked="checked" name="incall_hotel_room" value="5" disabled="disabled"><p class="etoiles"><b>5<span class="glyphicon glyphicon-star"></span></p>
-                                    <p class="etoiles">4<span class="glyphicon glyphicon-star"></span></p>
-                                    <p class="etoiles">3<span class="glyphicon glyphicon-star"></span></p>
-                                    <p class="etoiles">2<span class="glyphicon glyphicon-star"></span></p>
-                                    <p class="etoiles"><span class="glyphicon glyphicon-star"></span></p>
-                                            <svg viewBox="0 0 64 64"><use xlink:href="#icon-star"></use></svg> <svg viewBox="0 0 64 64"><use xlink:href="#icon-star"></use></svg> <svg viewBox="0 0 64 64"><use xlink:href="#icon-star"></use></svg> <svg viewBox="0 0 64 64"><use xlink:href="#icon-star"></use></svg> <svg viewBox="0 0 64 64"><use xlink:href="#icon-star"></use></svg>
-                                        </label>
+                                <div class="box" id="incall_type">
+                                    <h3 class="heading">Recevoir</h3>
+                                    <div class="custom-checkbox grp">
+                                        <input type="checkbox" id="incall" name="incall" value="Incall" checked="checked">            <label for="incall">Recevoir</label>
                                     </div><br>
-                                        <div class="radio">
-                                            <label for="4-star">
-                                                <input id="4-star" class="incall_hotel_room" type="radio" name="incall_hotel_room" value="4" disabled="disabled">
-                                                <svg viewBox="0 0 64 64"><use xlink:href="#icon-star"></use></svg> <svg viewBox="0 0 64 64"><use xlink:href="#icon-star"></use></svg> <svg viewBox="0 0 64 64"><use xlink:href="#icon-star"></use></svg> <svg viewBox="0 0 64 64"><use xlink:href="#icon-star"></use></svg>
-                                            </label>
-                                    </div><br>
-                                    <div class="radio">
-                                            <label for="3-star">
-                                                <input id="3-star" class="incall_hotel_room" type="radio" name="incall_hotel_room" value="3" disabled="disabled">
-                                                <svg viewBox="0 0 64 64"><use xlink:href="#icon-star"></use></svg> <svg viewBox="0 0 64 64"><use xlink:href="#icon-star"></use></svg> <svg viewBox="0 0 64 64"><use xlink:href="#icon-star"></use></svg>
-                                            </label>
-                                    </div><br>
-                                     <div class="radio">
-                                            <label for="2-star">
-                                                <input id="2-star" class="incall_hotel_room" type="radio" name="incall_hotel_room" value="2" disabled="disabled">
-                                                <svg viewBox="0 0 64 64"><use xlink:href="#icon-star"></use></svg> <svg viewBox="0 0 64 64"><use xlink:href="#icon-star"></use></svg>                                         
-                                            </label>
-                                    </div><br>
-                                     <div class="radio">
-                                            <label for="1-star">
-                                                <input id="1-star" class="incall_hotel_room" type="radio" name="incall_hotel_room" value="1" disabled="disabled">
-                                                <svg viewBox="0 0 64 64"><use xlink:href="#icon-star"></use></svg>                                         
-                                            </label>
-                                        </div><br>
+                                                        <div class="p-l-25">
+                                            <div class="grp">
+                                                <div class="radio">
+                                                    <label for="in-appartement-prive">
+                                                        <input type="radio" id="in-appartement-prive" name="incall_type" value="Appartement privé" class="incall_type_class" checked="checked"><span>Appartement privé</span>
+                                                    </label>
+                                                </div><br>
+                                                <div class="radio">
+                                                    <label for="in-chambre-d-hotel">
+                                                        <input type="radio" id="in-chambre-d-hotel" name="incall_type" value="Chambre d'hôtel" class="incall_type_class incall_hotel"> <span>Chambre d'hôtel</span>
+                                                    </label>
+                                                </div><br>
+                                                <div class="p-l-25">
+                                                    <div class="radio">
+                                                                <label for="5-star">
+                                                            <input id="5-star" class="incall_hotel_room" type="radio" checked="checked" name="incall_hotel_room" value="5" disabled="disabled"><p class="etoiles"><b>5<span class="glyphicon glyphicon-star"></span></p>
+                                                            <p class="etoiles">4<span class="glyphicon glyphicon-star"></span></p>
+                                                            <p class="etoiles">3<span class="glyphicon glyphicon-star"></span></p>
+                                                            <p class="etoiles">2<span class="glyphicon glyphicon-star"></span></p>
+                                                            <p class="etoiles"><span class="glyphicon glyphicon-star"></span></p>
+                                                                    <svg viewBox="0 0 64 64"><use xlink:href="#icon-star"></use></svg> <svg viewBox="0 0 64 64"><use xlink:href="#icon-star"></use></svg> <svg viewBox="0 0 64 64"><use xlink:href="#icon-star"></use></svg> <svg viewBox="0 0 64 64"><use xlink:href="#icon-star"></use></svg> <svg viewBox="0 0 64 64"><use xlink:href="#icon-star"></use></svg>
+                                                                </label>
+                                                            </div><br>
+                                                                <div class="radio">
+                                                                    <label for="4-star">
+                                                                        <input id="4-star" class="incall_hotel_room" type="radio" name="incall_hotel_room" value="4" disabled="disabled">
+                                                                        <svg viewBox="0 0 64 64"><use xlink:href="#icon-star"></use></svg> <svg viewBox="0 0 64 64"><use xlink:href="#icon-star"></use></svg> <svg viewBox="0 0 64 64"><use xlink:href="#icon-star"></use></svg> <svg viewBox="0 0 64 64"><use xlink:href="#icon-star"></use></svg>
+                                                                    </label>
+                                                            </div><br>
+                                                            <div class="radio">
+                                                                    <label for="3-star">
+                                                                        <input id="3-star" class="incall_hotel_room" type="radio" name="incall_hotel_room" value="3" disabled="disabled">
+                                                                        <svg viewBox="0 0 64 64"><use xlink:href="#icon-star"></use></svg> <svg viewBox="0 0 64 64"><use xlink:href="#icon-star"></use></svg> <svg viewBox="0 0 64 64"><use xlink:href="#icon-star"></use></svg>
+                                                                    </label>
+                                                            </div><br>
+                                                            <div class="radio">
+                                                                    <label for="2-star">
+                                                                        <input id="2-star" class="incall_hotel_room" type="radio" name="incall_hotel_room" value="2" disabled="disabled">
+                                                                        <svg viewBox="0 0 64 64"><use xlink:href="#icon-star"></use></svg> <svg viewBox="0 0 64 64"><use xlink:href="#icon-star"></use></svg>                                         
+                                                                    </label>
+                                                            </div><br>
+                                                            <div class="radio">
+                                                                    <label for="1-star">
+                                                                        <input id="1-star" class="incall_hotel_room" type="radio" name="incall_hotel_room" value="1" disabled="disabled">
+                                                                        <svg viewBox="0 0 64 64"><use xlink:href="#icon-star"></use></svg>                                         
+                                                                    </label>
+                                                                </div><br>
+                                                            </div>
+                                                            <div class="radio">
+                                                    <label for="in-club-studio">
+                                                        <input type="radio" id="in-club-studio" name="incall_hotel_room" value="3" class="incall_type_class"><span>Club/Studio</span>
+                                                    </label>
+                                                </div><br>
+                                                            <div class="radio">
+                                                                    <label for="in-autres-veuillez-fournir-des-details">
+                                                                        <input type="radio" id="in-autres-veuillez-fournir-des-details" name="incall_type" value="4" class="incall_type_class"><span>Autres précisions</span>
+                                                                    </label>
+                                                </div><br>
+                                                            <div class="row">
+                                                        <div class="col-xs-9">
+                                                            <input type="text" id="incall_other" name="incall_other" value="" class="txt" placeholder="Veuillez fournir des détails" size="25" disabled="disabled">                               
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="radio">
-                            <label for="in-club-studio">
-                                <input type="radio" id="in-club-studio" name="incall_hotel_room" value="3" class="incall_type_class"><span>Club/Studio</span>
-                            </label>
-                        </div><br>
-                                    <div class="radio">
-                                            <label for="in-autres-veuillez-fournir-des-details">
-                                                <input type="radio" id="in-autres-veuillez-fournir-des-details" name="incall_type" value="4" class="incall_type_class"><span>Autres ( veuillez fournir des détails)</span>
-                                            </label>
-                        </div><br>
-                                    <div class="row">
-                                <div class="col-xs-9">
-                                    <input type="text" id="incall_other" name="incall_other" value="" class="txt" placeholder="Incall Autres ( veuillez fournir des détails)" size="25" disabled="disabled">                               
+                                    <div class="col-xs-6">
+                                <div class="box" id="outcall_type">
+                                    <h3 class="heading">Sortir</h3>
+                                    <div class="custom-checkbox grp">
+                                        <input type="checkbox" id="outcall" name="outcall" value="Outcall">          
+                                        <label for="outcall">Sortir</label>
+                                    </div><br>
+                                    <div class="p-l-25">
+                                        <div class="grp">
+                                            <div class="radio">
+                                                    <label for="out-uniquement-visites-a-l-hotel">
+                                                        <input type="radio" id="out-uniquement-visites-a-l-hotel" name="outcall_type" value="Uniquement visites à l'hôtel" class="outcall_type_class" disabled="disabled">   
+                                                        <span>Uniquement visites à l'hôtel</span>
+                                                    </label>
+                                                </div><br>
+                                                <div class="radio">
+                                                    <label for="out-uniquement-visites-a-la-maison">
+                                                        <input type="radio" id="out-uniquement-visites-a-la-maison" name="outcall_type" value="Uniquement visites à la maison" class="outcall_type_class" disabled="disabled">  
+                                                        <span>Uniquement visites à la maison</span>
+                                                    </label>
+                                                </div><br>
+                                                <div class="radio">
+                                                    <label for="out-visites-a-l-hotel-et-a-la-maison">
+                                                        <input type="radio" id="out-visites-a-l-hotel-et-a-la-maison" name="outcall_type" value="Visites à l'hôtel et à la maison" class="outcall_type_class" disabled="disabled">   
+                                                        <span>Visites à l'hôtel et à la maison</span>
+                                                    </label>
+                                                </div><br>
+                                                <div class="radio">
+                                                    <label for="out-autres-veuillez-fournir-des-details">
+                                                        <input type="radio" id="out-autres-veuillez-fournir-des-details" name="outcall_type" value="Autres ( veuillez fournir des détails)" class="outcall_type_class" disabled="disabled">  
+                                                        <span>Autres précisions</span>
+                                                    </label>
+                                                </div><br>
+                                                    <div class="row">
+                                                        <div class="col-xs-9">
+                                                            <input type="text" id="outcall_other" name="outcall_other" value="" class="txt" placeholder="Veuillez fournir des détails" size="25" disabled="disabled">                                
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                     </div>
-                  </div>
-             </div>
-             <div class="col-xs-6">
-        <div class="box" id="outcall_type">
-            <h3 class="heading">Outcall</h3>
-            <div class="custom-checkbox grp">
-                <input type="checkbox" id="outcall" name="outcall" value="Outcall">          
-                 <label for="outcall">Outcall</label>
-            </div><br>
-            <div class="p-l-25">
-                <div class="grp">
-                    <div class="radio">
-                            <label for="out-uniquement-visites-a-l-hotel">
-                                <input type="radio" id="out-uniquement-visites-a-l-hotel" name="outcall_type" value="Uniquement visites à l'hôtel" class="outcall_type_class" disabled="disabled">   
-                                <span>Uniquement visites à l'hôtel</span>
-                            </label>
-                        </div><br>
-                        <div class="radio">
-                            <label for="out-uniquement-visites-a-la-maison">
-                                <input type="radio" id="out-uniquement-visites-a-la-maison" name="outcall_type" value="Uniquement visites à la maison" class="outcall_type_class" disabled="disabled">  
-                                <span>Uniquement visites à la maison</span>
-                            </label>
-                        </div><br>
-                        <div class="radio">
-                            <label for="out-visites-a-l-hotel-et-a-la-maison">
-                                <input type="radio" id="out-visites-a-l-hotel-et-a-la-maison" name="outcall_type" value="Visites à l'hôtel et à la maison" class="outcall_type_class" disabled="disabled">   
-                                <span>Visites à l'hôtel et à la maison</span>
-                            </label>
-                        </div><br>
-                        <div class="radio">
-                            <label for="out-autres-veuillez-fournir-des-details">
-                                <input type="radio" id="out-autres-veuillez-fournir-des-details" name="outcall_type" value="Autres ( veuillez fournir des détails)" class="outcall_type_class" disabled="disabled">  
-                                <span>Autres ( veuillez fournir des détails)</span>
-                            </label>
-                        </div><br>
-                            <div class="row">
-                                <div class="col-xs-9">
-                                    <input type="text" id="outcall_other" name="outcall_other" value="" class="txt" placeholder="Outcall Autres ( veuillez fournir des détails)" size="25" disabled="disabled">                                
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-             </div>
-         </div>
-    </div>
-                        
 
                 <div class="col-xs-12">
                      <div class="nextandbackBtns">
@@ -461,6 +501,14 @@ require('connexionBD.php');
                     </div>
             </div>
         </form>
+        <script>
+    $('.city-clear').click(function() {
+        var $picker = $(this).siblings('.bootstrap-select').find('select');
+
+        $picker.val('');
+        $picker.selectpicker("refresh");
+    });
+</script>
         </main>
         <footer>
         <div class="footer-top">
@@ -489,7 +537,7 @@ require('connexionBD.php');
                 </div>
             </div>
         </div>
-        <div class="copy"><small>© MINELUX 2020 Copyrigth All rigths reserved. V1.0 </small></div>
+        
     </footer>
 </body>
 </html>

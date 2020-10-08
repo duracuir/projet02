@@ -708,7 +708,8 @@ a
   text-decoration: none;
   outline: none;
 }
-
+/* .custom-checkbox input[type=checkbox]:checked + label:after {
+    background-image: url(../fond/checkmark-blue.png); */
                                                                     /* Bouton enregistrement */
 
 
@@ -725,7 +726,7 @@ a
 
 
 
-                                                                                /*FOOTER*/
+/*FOOTER*/
 
 .footer-top
 {
@@ -734,9 +735,7 @@ a
     padding: 2px 0;
     text-align: center;
     vertical-align: middle;
-
 }
-
 .line
 {
     position: relative;
@@ -756,6 +755,7 @@ footer {
 
 }
 /*icon svg*/
+
 .footer-top svg {
     fill: #fff;
     width: 32px;

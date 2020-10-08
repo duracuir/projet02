@@ -1,5 +1,9 @@
 
 /*GENERAL*/
+*{
+    padding: 0;
+    margin: 0;
+}
 body
 {
     font-family: 'Open sans' , sans-serif;
@@ -49,6 +53,12 @@ p
     padding-left: 15px;
     padding-right: auto;
     padding-left: auto;
+}
+main{
+    margin-top: 20px;
+}
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+    display: block;
 }
 *
 {
@@ -251,7 +261,7 @@ a
 }
 .citys{
     position: relative;
-    top: 300px;
+    top: 260px;
     left: 38%;
     color: #fff;
 }
@@ -564,6 +574,8 @@ a
 }
 /* Choisir les details sur la minette */
 
+
+
 .custom-1
 {
     width: 24%;
@@ -702,17 +714,20 @@ a
     width: 100%;
     height: auto;
 }
+#home .row-sm> [class*="col-"], #home .row-sm> .one-6, #home .row-sm> .one-7, #home .row-sm> .five-6 {
+    padding: 7px;
+}
 .col-xs-4
 {
-    width: 33.33%;
+    width: 33.33333333%;
 }
-/* #home .escort .img
+#home .escort .img
 {
     position: relative;
     width: 302px;
     height: 443px;
     background: #fff;
-} */
+} 
 /* #home .escort .img .badges
 {
     position: absolute;
@@ -792,10 +807,10 @@ a
     visibility: visible;
 */
 
-/* #home .escort .img .overlay .name {
+#home .escort .img .overlay .name {
     font-weight: 700;
     font-size: 22px;
-} */
+} 
 .listing_desc 
 {
     height: 30px;
@@ -974,13 +989,13 @@ footer {
 
 .gallery-container a:hover {
     opacity: 0.3;
-    visibility: visible;
+    
 }
 
 .gallery-container a div {
     width: 80%;
-    float: right;
-    display: block;
+    /* float: right;
+    display: block; */
     padding: 0 7px;
     background-position: center;
     background-repeat: no-repeat;
@@ -990,10 +1005,21 @@ footer {
     height: 443px;
 
 }
-.gallery-container {
-	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
-	justify-content: flex-start;
-	align-content: flex-start;
+/* gallery-container {
+    padding: 200px;
+    border: 1px solid #fff;
+    display: flex;
+        overflow: scroll;
+        flex-flow: row wrap;
+        
+} */
+.container{
+    width: 100%;
+    height: auto;
 }
+.flex-container{
+    display: flex;
+flex-direction: row;
+}
+@media screen and (max-width:1200px){.flex-container{ width: 40%;}
+@media screen and (max-width:600px){.flex-container{ width: 90%;}
