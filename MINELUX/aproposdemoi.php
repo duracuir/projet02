@@ -139,7 +139,7 @@ if (isset($_POST['Save'])) {
                         <h3 class="heading">Informations supplémentaires</h3>
                         <div class="row">
                             <div class="col-xs-3 grp">
-                            <label for="smoking">Fumeur:</label>
+                            <label for="smoking">Fumeur</label>
                         </div>
                         <div class="col-xs-9 grp">
                             <div class="radio">
@@ -153,7 +153,7 @@ if (isset($_POST['Save'])) {
                             </div>
                         </div>
                             <div class="col-xs-3 grp">
-                    <label for="drinking">Boit de l'alcool:</label>
+                    <label for="drinking">Discothèque</label>
                 </div>
                      <div class="col-xs-9 grp"><div class="radio">
                             <label><input type="radio" id="is_drinking" name="is_drinking" value="Oui">Oui</label>

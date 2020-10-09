@@ -166,7 +166,7 @@ session_start();
                     </select>
                 </div>
                 </div>
-                <a href="javascript:void(0);" class="btn btn-primary show-more-cities pull-right" data-toggle="collaspse" data-target="#more-cities"><span>Voir plus</span></a>                   
+                <a href="/" class="btn btn-primary show-more-cities pull-right" data-toggle="collaspse" data-target="#more-cities"><span>Voir plus</span></a>                   
                 </div>
             </div>
         </header>
@@ -183,119 +183,25 @@ session_start();
                     </div>
                 <div class="sb-widget-gotm">
                     <h2 class="title">Copine du mois</h2>
-                    <a href="images/minette-01" ><div class="img"><img src="fond/minette-022.png" alt="lolita - femme minette du mois Douala" class="img-full"><div class="text"><p class="name">Lolita</p><p class="city">Douala</p></div></dir></div></a>
+                    <a href="images/minette-01" ><div class="img"><img src="fond/minette-022.png" alt="lolita - femme minette du mois Douala" class="img-full"><div class="text"><p class="name">Lolita</p><p class="city">Douala</p></div></a>
+                </div>
                 </div>
               
                     </div>
                     </div>
-             <div class="content">
-              <div class="home-search">
-                    <div class="search-toggle">
-                        <a href="javascript:void(0);" class="btn s-toggle current advanced-off"><span>Normal search </span></a>
-                        <a href="javascript:void(0);" class="btn s-toggle advanced-on"><span>Advanced Search</span></a>
-                        <a href="javascript:void(0);" class="clear-search pull-right" ><span>Réinitialiser</span><span class="x-symbol"> X</span></a>
-                    </div>
-                    <div>
-                        <form id="home-search" name="home-search" action methode="POST">
-                           <div class="row row-3">
-                               <div class="custom-1">
-                                <div class="btn-group bootstrap-select">
-                                    <button type="button" class="btn dropdown-toggle bs-placeholder btn-default" data-toggle="dropdown" data-id="ethnicity" title="age" aria-expanded="fasle"><span class="filter-option pull-left">Âge</span>
-                                        <span class="bs-caret">
-                                            <span class="caret"></span></span>
-                                    </button>
-                                    <div class="dropdown-menu open">
-                                        <ul class="dropdown-menu inner" role="menu">
-                                            <li data-original-index="0" class="selected"><a tabindex="0" class style data-tokens="null"><span class="text">Âge</span><span class style data-tokens="null"><!--<span class="glyphicon glyphicon-ok check-marck">--></span></span></a></li>
-                                            <li data-original-index="1"><a tabindex="0" class style data-tokens="null"><span class="text">18-20</span><span class="glyphicon glyphicon-ok check-marck"></span></a></li>
-                                            <li data-original-index="1"><a tabindex="1" class style data-tokens="null"><span class="text">21-24</span><span class="glyphicon glyphicon-ok check-marck"></span></a></li>
-                                            <li data-original-index="1"><a tabindex="2" class style data-tokens="null"><span class="text">25-27</span><span class="glyphicon glyphicon-ok check-marck"></span></a></li>
-                                            <li data-original-index="1"><a tabindex="3" class style data-tokens="null"><span class="text">28-30</span><span class="glyphicon glyphicon-ok check-marck"></span></a></li>
-                                            <li data-original-index="1"><a tabindex="4" class style data-tokens="null"><span class="text">31-33</span><span class="glyphicon glyphicon-ok check-marck"></span></a></li>
-                                            <li data-original-index="1"><a tabindex="5" class style data-tokens="null"><span class="text">34-36</span><span class="glyphicon glyphicon-ok check-marck"></span></a></li>
-                                            <li data-original-index="1"><a tabindex="6" class style data-tokens="null"><span class="text">37-39</span><span class="glyphicon glyphicon-ok check-marck"></span></a></li>
-                                            <li data-original-index="1"><a tabindex="7" class style data-tokens="null"><span class="text">40-45</span><span class="glyphicon glyphicon-ok check-marck"></span></a></li>
-                                            <li data-original-index="1"><a tabindex="8" class style data-tokens="null"><span class="text">46-50</span><span class="glyphicon glyphicon-ok check-marck"></span></a></li>
-                                            <li data-original-index="1"><a tabindex="9" class style data-tokens="null"><span class="text">>50</span><span class="glyphicon glyphicon-ok check-marck"></span></a></li>
-                                        </ul>
-                                    </div>
-                                    <select class="selectpicker" id="height" tabindex="-98">
-                                        <option value>Âge</option>
-                                        <option value="0">18-20</option>
-                                        <option value="1">21-24</option>
-                                        <option value="2">25-27</option>
-                                        <option value="3">28-30</option>
-                                        <option value="4">31-33</option>
-                                        <option value="5">34-36</option>
-                                        <option value="6">37-39</option>
-                                        <option value="7">40-45</option>
-                                        <option value="8">46-50</option>
-                                        <option value="9">>50</option>
-                                    </select>
-                                </div>
-                           </div> 
-                           <div class="custom-2">
-                                <div class="btn-group bootstrap-select">
-                                    <button type="button" class="btn dropdown-toggle bs-placeholder btn-default" data-toggle="dropdown" data-id="ethnicity" title="age" aria-expanded="fasle"><span class="filter-option pull-left">Taille</span>
-                                        <span class="bs-caret">
-                                            <span class="caret"></span></span>
-                                    </button>
-                                    <div class="dropdown-menu open">
-                                        <ul class="dropdown-menu inner" role="menu">
-                                            <li data-original-index="0" class="selected"><a tabindex="0" class style data-tokens="null"><span class="text">Taille</span><span class style data-tokens="null"><span class="glyphicon glyphicon-ok check-marck"></span></span></a></li>
-                                            <li data-original-index="1"><a tabindex="0" class style data-tokens="null"><span class="text">>1.60</span><span class="glyphicon glyphicon-ok check-marck"></span></a></li>
-                                            <li data-original-index="1"><a tabindex="1" class style data-tokens="null"><span class="text">1.60-1.65</span><span class="glyphicon glyphicon-ok check-marck"></span></a></li>
-                                            <li data-original-index="1"><a tabindex="2" class style data-tokens="null"><span class="text">1.65-1.70</span><span class="glyphicon glyphicon-ok check-marck"></span></a></li>
-                                            <li data-original-index="1"><a tabindex="3" class style data-tokens="null"><span class="text">1.70-1.80</span><span class="glyphicon glyphicon-ok check-marck"></span></a></li>
-                                            <li data-original-index="1"><a tabindex="4" class style data-tokens="null"><span class="text">>1.80</span><span class="glyphicon glyphicon-ok check-marck"></span></a></li>
-                                        </ul>
-                                    </div>
-                                    <select class="selectpicker" id="height" tabindex="-98">
-                                        <option value>Taille</option>
-                                        <option value="0"><1.60</option>
-                                        <option value="1">1.60-1.65</option>
-                                        <option value="2">1.65-1.70</option>
-                                        <option value="3">1.70-1.80</option>
-                                        <option value="4">>1.80</option>
-                                    </select>
-                                </div>
-                           </div>
-                           <div class="row row-3">
-                               <div class="custom-3">
-                                <div class="btn-group bootstrap-select">
-                                    <button type="button" class="btn dropdown-toggle bs-placeholder btn-default" data-toggle="dropdown" data-id="ethnicity" title="age" aria-expanded="fasle"><span class="filter-option pull-left">Langue</span>
-                                        <span class="bs-caret">
-                                            <span class="caret"></span></span>
-                                    </button>
-                                    <div class="dropdown-menu open">
-                                        <ul class="dropdown-menu inner" role="menu">
-                                            <li data-original-index="0" class="selected"><a tabindex="0" class style data-tokens="null"><span class="text">Langue</span><span class style data-tokens="null"><span class="glyphicon glyphicon-ok check-marck"></span></span></a></li>
-                                            <li data-original-index="1"><a tabindex="0" class style data-tokens="null"><span class="text">Francais</span><span class="glyphicon glyphicon-ok check-marck"></span></a></li>
-                                            <li data-original-index="1"><a tabindex="1" class style data-tokens="null"><span class="text">Anglais</span><span class="glyphicon glyphicon-ok check-marck"></span></a></li>
-                                        </ul>
-                                    </div>
-                                    <select class="selectpicker" id="height" tabindex="-98">
-                                        <option value>Langue</option>
-                                        <option value="0">Francais</option>
-                                        <option value="1">Anglais</option>
-                                    </select>
-                                </div>
-                           </div>  
-                        </form>
-                    </div>
-                </div>
-                <style></style>
+             
                 <main class="content">
-                <div class=""></div>
+                
                     <div class="escorts">
                       <div class="row row-sm" >  
                          <div class="col-xs-4 escort">
                          <div class="overlay">
                              <section class="gallery-links">
                                  <div class="wrapper">
-                                    <div class="gallery-container">
+                                    <div class="gallery">
                                         <div class="flex-container">
-                                        <!-- <div class="col-md-4"> -->
+                                       
+                                       
                                     <?php
                                     $servername = "localhost";
                                     $username = "root";
@@ -348,7 +254,7 @@ session_start();
             </div>
         </main>
    <!--  message aux visiteurs  -->
-    <div class="loaderdiv" style="display:none;">
+    <!-- <div class="loaderdiv" style="display:none;">
                         <div class="loader">Loading...
                         </div>
                     </div>
@@ -377,7 +283,7 @@ session_start();
              </div>
             </div>
             </div>
-        </main>
+        </main> -->
         <footer>
         <div class="footer-top">
             <div class="container">

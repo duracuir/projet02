@@ -209,9 +209,9 @@ if (isset($_GET["username"])) {
                         
 <!--                        Boutton pour voter -->
                         
-                        <div class="col-xs-4 clearfix gotm_div">
+                        <!-- <div class="col-xs-4 clearfix gotm_div">
                                 <a href="/" class="btn btn-primary cta">Votez pour moi !</a>
-                        </div>
+                        </div> -->
                         
                         <div class="col-xs-12">
                             <h3 class="box-title">Biographie</h3>
@@ -300,14 +300,14 @@ if (isset($_GET["username"])) {
                     </div>
                 </div>
                 <?php }?>
+                
                  <!--  Afficher les Services offertent -->
-              
+              <div class="col-xs-4">
                 <div class="box service-offered">
                         <h3 class="box-title half">Services</h3>
                         <div class="row">
                             <ul class="col-xs-4">                                
-                                
-                            </ul>                                                            
+ul>                                                            
                             <ul class="col-xs-4">                   
                                 
                             </ul>    
@@ -317,7 +317,8 @@ if (isset($_GET["username"])) {
                             </ul>
                         </div>
                     </div>
-                <div class="col-xs-6">
+                    </div>
+                <div class="col-xs-4">
                             <div class="box prices">
                                 <h3 class="box-title">Mon Cadeau</h3>
                                 <div class="row row-sm">

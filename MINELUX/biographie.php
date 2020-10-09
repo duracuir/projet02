@@ -174,40 +174,6 @@ if (isset($_SESSION["username"])) {
                             <div class="col-xs-5 grp">
                             <input type="text" id="nom" name="username" value=<?php echo "$_SESSION[username]" ?> placeholder="Nom">
                             </div>
-                            <!-- <div class="col-xs-1 grp">
-                                <label for="ville">Ville*</label>
-
-                            </div>
-                            <div class="col-xs-3 grp">
-                            <div class="btn dropdown-toggle btn-default">
-                                <button type="button" class="btn dropdown-toggle btn-default">
-                                    <select name="ville" class="selectpicker" placeholder="ville" >
-                                    <option value="0">Ville</option>
-                                            <option selected="active" value="">Yaoundé</option>
-                                            <option value="Douala">Douala</option>
-                                            <option value="Bamenda">Bamenda</option>
-                                            <option value="Nkongsamba">Nkongsamba</option>
-                                            <option value="Bafoussam">Bafoussam</option>
-                                            <option value="Buea">Buea</option>
-                                            <option value="limbe">Limbé</option>
-                                            <option value="Kribi">Kribi</option>
-                                            <option value="Edea">Edea</option>
-                                            <option value="Dschang">Dschang</option>
-                                            <option value="Ebolowa">Ebolowa</option>
-                                            <option value="Ngaoundéré">Ngaoundéré</option>
-                                            <option value="Bertoua">Bertoua</option>
-                                            <option value="Loum">Loum</option>
-                                            <option value="Kumba">Kumba</option>
-                                            <option value="Foumban">Foumban</option>
-                                            <option value="Tiko">Tiko</option>
-                                            <option value="Bafang">Bafang</option>
-                                            <option value="Sangmélima">Sangmélima</option>
-                                            <option value="Mbanga">Mbanga</option>
-                                            <option value="Mélong">Mélong</option>
-                                </select>
-                                </button>  
-                               </div>  
-                             </div> -->
                             <div class="col-xs-5 grp">
                             <label for="start">Né(e) le:</label>
                         </div>
@@ -284,7 +250,7 @@ if (isset($_SESSION["username"])) {
                                               <div class="gallery-upload">
 
                                                       <a href="images.php">Cliquez ICI</a>    
-                                                       
+
                                                   </div>
                                               </div>
                                     </form>

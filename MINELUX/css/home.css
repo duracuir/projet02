@@ -987,15 +987,15 @@ footer {
 
 /*GELERIE PHOTOS*/
 
-.gallery-container a:hover {
+.gallery a:hover {
     opacity: 0.3;
     
 }
 
-.gallery-container a div {
+.gallery a div {
     width: 80%;
-    /* float: right;
-    display: block; */
+    float: left;
+    display: block;
     padding: 0 7px;
     background-position: center;
     background-repeat: no-repeat;
@@ -1003,23 +1003,13 @@ footer {
     position: relative;
     width: 302px;
     height: 443px;
+    
 
 }
-/* gallery-container {
-    padding: 200px;
-    border: 1px solid #fff;
+.gallery-container {
+
+} 
+
+ .flex-container{
     display: flex;
-        overflow: scroll;
-        flex-flow: row wrap;
-        
-} */
-.container{
-    width: 100%;
-    height: auto;
-}
-.flex-container{
-    display: flex;
-flex-direction: row;
-}
-@media screen and (max-width:1200px){.flex-container{ width: 40%;}
-@media screen and (max-width:600px){.flex-container{ width: 90%;}
+}  
