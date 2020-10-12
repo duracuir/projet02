@@ -169,7 +169,7 @@ if (isset($_GET["username"])) {
                                             <img class="img-full" src="images/gallery/'.$results[0]->photos.'" alt="detail de la photo">
                                     </a>' 
                                 ?> 
-                                <a href="galleryphoto.php"><p>Voir plus...</p>
+                                <a href="galleryphoto.php"><p class="btn btn-primary">Voir plus...</p>
                                 </a>
                                                 </div>
 

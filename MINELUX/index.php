@@ -170,9 +170,9 @@ session_start();
                 </div>
             </div>
         </header>
-        <main class="container">
-            <div class="row">
-                <div class="sidebar">
+        <!-- <main class="container">
+            <div class="row"> -->
+                <!-- <div class="sidebar">
                    <div class="sb-widget-register"><img src="fond/escort-01.jpg" alt="devenir une minette girls">
                     <div class="side">
                        <h4>Vous êtes
@@ -188,10 +188,10 @@ session_start();
                 </div>
               
                     </div>
-                    </div>
+                    </div> -->
              
-                <main class="content">
-                
+                <main class="container">
+                    <div class="row">
                     <div class="escorts">
                       <div class="row row-sm" >  
                          <div class="col-xs-4 escort">
@@ -200,8 +200,7 @@ session_start();
                                  <div class="wrapper">
                                     <div class="gallery">
                                         <div class="flex-container">
-                                       
-                                       
+
                                     <?php
                                     $servername = "localhost";
                                     $username = "root";
@@ -222,7 +221,7 @@ session_start();
                                             <div style="background-image: url(images/gallery/'.$row["photos"].');">
                                             <p class="citys">'.$row["username"].'</p>
                                             <p class="citys">'.$row["ville"].'</p>
-                                            <p class="citys">'.$row["datenaiss"].'</p>
+                                            <p class="cityse">'.$row["datenaiss"].'</p>
                                             <p class="btn git">Voir plus...</p>
                                             </div>
                                             </div>
@@ -231,6 +230,7 @@ session_start();
                                         }
                                     }
                                     ?>
+                                        </div>
                                        </div>
                                         </div>
                                     </div>
@@ -252,7 +252,7 @@ session_start();
              </div>
              </div>
             </div>
-        </main>
+        </main> 
    <!--  message aux visiteurs  -->
     <!-- <div class="loaderdiv" style="display:none;">
                         <div class="loader">Loading...

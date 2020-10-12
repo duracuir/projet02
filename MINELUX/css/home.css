@@ -265,6 +265,12 @@ a
     left: 38%;
     color: #fff;
 }
+.cityse{
+    position: relative;
+    top: 260px;
+    left: 50%;
+    color: #fff;
+}
 .one-6
 {
     width: 16.66666666666667%;
@@ -846,7 +852,7 @@ a
 {
     z-index: 4;
     position: relative;
-    top: 300px;
+    top: 220px;
     left: 100px;
     border: 2px solid #fff;
     border-radius: 6px;
@@ -993,9 +999,8 @@ footer {
 }
 
 .gallery a div {
-    width: 80%;
-    float: left;
-    display: block;
+    width: 100%;
+    display: inline;
     padding: 0 7px;
     background-position: center;
     background-repeat: no-repeat;
@@ -1010,6 +1015,11 @@ footer {
 
 } 
 
- .flex-container{
+.flex-container a div{
     display: flex;
-}  
+   float: inline-end;
+}
+/* #edit-profile .box {
+    background: #fff;
+    padding: 42px 35px;
+} */
