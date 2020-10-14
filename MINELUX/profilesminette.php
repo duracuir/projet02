@@ -147,8 +147,8 @@ if (isset($_GET["username"])) {
 		</header>
            <div class="container">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="/">Accueil</a> </li>
-                <li class="breadcrumb-item"><a href="#"><?php echo $results[0]->ville ?> </a> </li>
+                <li class="breadcrumb-item"><a href="index.php">Accueil</a> </li>
+                <li class="breadcrumb-item"><a href="Nom de la Ville"><?php echo $results[0]->ville ?> </a> </li>
                 <li class="breadcrumb-item active"><?php echo $username;?></li>
             </ol>
         </div>

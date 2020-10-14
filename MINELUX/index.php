@@ -190,17 +190,15 @@ session_start();
                     </div>
                     </div> -->
              
-                <main class="container">
-                    <div class="row">
+                <main>
+
                     <div class="escorts">
                       <div class="row row-sm" >  
                          <div class="col-xs-4 escort">
                          <div class="overlay">
                              <section class="gallery-links">
-                                 <div class="wrapper">
                                     <div class="gallery">
                                         <div class="flex-container">
-
                                     <?php
                                     $servername = "localhost";
                                     $username = "root";
@@ -220,28 +218,19 @@ session_start();
                                             <div class="listing_desc">
                                             <div style="background-image: url(images/gallery/'.$row["photos"].');">
                                             <p class="citys">'.$row["username"].'</p>
-                                            <p class="citys">'.$row["ville"].'</p>
-                                            <p class="cityse">'.$row["datenaiss"].'</p>
+                                            <p class="citysa">('.$row["ville"].')</p>
+                                            <p class="cityse">('.$row["datenaiss"].')</p>
                                             <p class="btn git">Voir plus...</p>
                                             </div>
                                             </div>
-                                            
                                         </a>';
                                         }
                                     }
                                     ?>
                                         </div>
                                        </div>
-                                        </div>
-                                    </div>
-                                    </div>
-                            </div>
-                        </div>
-                        
-
                         </section>
                                          <!-- <a class="profile_a" href=""></a>  -->
-
                     </div>
                     </div>
                     </div>

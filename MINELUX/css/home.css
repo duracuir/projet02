@@ -260,16 +260,36 @@ a
     margin-bottom: 12px;
 }
 .citys{
-    position: relative;
-    top: 260px;
-    left: 38%;
+    position: absolute;
+    top: 210px;
+    left: 30%;
+    right: 0;
+    bottom: 0;
     color: #fff;
+    font-size: 300;
+    -webkit-transition: all 200ms ease;
+    -moz-transition: all 200ms ease;
+    transition: all 200ms ease;
 }
 .cityse{
     position: relative;
-    top: 260px;
+    top: 250px;
     left: 50%;
     color: #fff;
+    ont-size: 300;
+    -webkit-transition: all 200ms ease;
+    -moz-transition: all 200ms ease;
+    transition: all 200ms ease;
+}
+.citysa{
+    position: relative;
+    top: 250px;
+    left: 50%;
+    color: #fff;
+    ont-size: 300;
+    -webkit-transition: all 200ms ease;
+    -moz-transition: all 200ms ease;
+    transition: all 200ms ease;
 }
 .one-6
 {
@@ -846,17 +866,15 @@ a
     font-family: 'Montserrat';
     font-weight: 400;
     font-size: 18px;
-   
 }
 .git 
 {
-    z-index: 4;
     position: relative;
-    top: 220px;
+    top: 240px;
     left: 100px;
-    border: 2px solid #fff;
-    border-radius: 6px;
-    margin-top: 25px;
+    border: 1px solid #fff;
+    border-radius: 0;
+    margin-top: 10px;
     color: #fff;
 }
 #home .escort .img .overlay
@@ -930,13 +948,7 @@ element.style {
     color: #686868;
     text-align: justify;
 }
-.clearfix:after, .dl-horizontal dd:after, .container:after, .container-fluid:after, .row:after, .form-horizontal .form-group:after, .btn-toolbar:after, .btn-group-vertical>.btn-group:after, .nav:after, .navbar:after, .navbar-header:after, .navbar-collapse:after, .pager:after, .panel-body:after, .modal-header:after, .modal-footer:after {
-    clear: both;
-}
-.clearfix:before, .clearfix:after, .dl-horizontal dd:before, .dl-horizontal dd:after, .container:before, .container:after, .container-fluid:before, .container-fluid:after, .row:before, .row:after, .form-horizontal .form-group:before, .form-horizontal .form-group:after, .btn-toolbar:before, .btn-toolbar:after, .btn-group-vertical>.btn-group:before, .btn-group-vertical>.btn-group:after, .nav:before, .nav:after, .navbar:before, .navbar:after, .navbar-header:before, .navbar-header:after, .navbar-collapse:before, .navbar-collapse:after, .pager:before, .pager:after, .panel-body:before, .panel-body:after, .modal-header:before, .modal-header:after, .modal-footer:before, .modal-footer:after {
-    display: table;
-    content: " ";
-}
+
 
 
 /*FOOTER*/
@@ -994,12 +1006,13 @@ footer {
 /*GELERIE PHOTOS*/
 
 .gallery a:hover {
-    opacity: 0.3;
+    opacity: 0.5;
     
 }
 
 .gallery a div {
-    width: 100%;
+    width: 80%;
+    float: right;
     display: inline;
     padding: 0 7px;
     background-position: center;
@@ -1008,18 +1021,13 @@ footer {
     position: relative;
     width: 302px;
     height: 443px;
-    
-
 }
 .gallery-container {
 
 } 
 
-.flex-container a div{
+  .flex-container{
     display: flex;
-   float: inline-end;
+    flex-direction: row;
 }
-/* #edit-profile .box {
-    background: #fff;
-    padding: 42px 35px;
-} */
+
