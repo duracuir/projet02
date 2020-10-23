@@ -20,7 +20,7 @@ session_start();
     <link href="fond/favicon.png" rel="icon" type="fond/png">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/home.css">
@@ -211,20 +211,27 @@ session_start();
                                     $dbname = "myminette";
 
                                     $conn = mysqli_connect("$servername", $username, $password, $dbname);
-                                    // $sql = "SELECT username, photos, (YEAR(CURDATE())-date_format(datenaiss, '%Y')) as datenaiss, ville FROM membres ORDER BY orderGallery DESC";
-                                    $sql = "SELECT username, photos FROM membres ORDER BY orderGallery DESC ";
+                                    $sql = "SELECT username, photos, (YEAR(CURDATE())-date_format(datenaiss, '%Y')) as datenaiss, ville FROM membres ORDER BY orderGallery DESC";
                                     $stmt = mysqli_stmt_init($conn);
                                     if (!mysqli_stmt_prepare($stmt, $sql)) {
                                         echo "SQL statement failed!";
                                     } else {
                                         mysqli_stmt_execute($stmt);
                                         $result = mysqli_stmt_get_result($stmt);
-                                        while ($data = $result->fetch_assoc()) {
-                                            echo "<h2>{$data['username']}</h2>";
-                                            echo  "<img src {images/gallery/.$data[photos]. width= 320px; height=443px; flex-direction: row;}";
+                                        while ($row = mysqli_fetch_assoc($result)) {
+                                            echo '<a href="profilesminette.php?username=' . $row["username"] . '">
+                                            <div class="listing_desc">
+                                            <div style="background-image: url(images/gallery/' . $row["photos"] . ');">
+                                            <p class="citys">' . $row["username"] . '</p>
+                                            <p class="citys">' . $row["ville"] . '</p>
+                                            <p class="cityse">' . $row["datenaiss"] . '</p>
+                                            <p class="btn git">Voir plus...</p>
+                                            </div>
+                                            </div>
+                                            
+                                        </a>';
                                         }
                                     }
-
                                     ?>
                                 </div>
                             </div>
@@ -305,7 +312,7 @@ session_start();
     </footer>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
 </body>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
 
 </html>
 

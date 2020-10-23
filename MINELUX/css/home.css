@@ -1016,10 +1016,10 @@ footer {
     
 }
 
-/* .gallery a div {
+.gallery a div {
     width: 80%;
     float: right;
-    display: inline-flex;
+    display: inline;
     padding: 0 7px;
     background-position: center;
     background-repeat: no-repeat;
@@ -1027,11 +1027,11 @@ footer {
     position: relative;
     width: 302px;
     height: 443px;
-} */
+}
 .flex-container{
     display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
+	flex-direction: row-reverse;
+	/* flex-wrap: wrap;
 	justify-content: flex-start;
-    align-content: flex-start;
+    align-content: flex-start; */
 }
